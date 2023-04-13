@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     /// </summary>
     [SerializeField]
     private Vector2 inputVec;
+    public Vector2 InputVec => inputVec;
     /// <summary>
     /// Player移動速度
     /// </summary>
