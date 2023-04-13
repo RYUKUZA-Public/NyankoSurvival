@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,11 +18,16 @@ public class Player : MonoBehaviour
     /// Player Rigidbody 2D コンポーネント
     /// </summary>
     private Rigidbody2D _rigid;
+    /// <summary>
+    /// PlayerのSprite
+    /// </summary>
+    private SpriteRenderer _sprite;
     
     private void Awake()
     {
         // Rigidbody2D 初期化
         _rigid = GetComponent<Rigidbody2D>();
+        _sprite = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -30,6 +36,13 @@ public class Player : MonoBehaviour
         Vector2 nextVec = inputVec * (speed * Time.fixedDeltaTime);
         // Rigidbody2Dを利用してプレイヤー移動
         _rigid.MovePosition(_rigid.position + nextVec);
+    }
+    
+    private void LateUpdate()
+    {
+        // 入力ベクトルのx値が、0でなければ、スプライトの方向を変更
+        if (inputVec.x != 0)
+            _sprite.flipX = inputVec.x > 0;
     }
 
     /// <summary>
