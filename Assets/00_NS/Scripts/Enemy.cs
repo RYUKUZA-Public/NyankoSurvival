@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -26,6 +27,12 @@ public class Enemy : MonoBehaviour
     {
         _rigid = GetComponent<Rigidbody2D>();
         _sprite = GetComponent<SpriteRenderer>();
+    }
+
+    private void OnEnable()
+    {
+        // 活性時に、Target(Player)登録
+        target = GameManager.Instance.Player.GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()

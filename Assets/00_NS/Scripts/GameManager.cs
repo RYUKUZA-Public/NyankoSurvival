@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] private Player player;
     public Player Player => player;
+    
+    [SerializeField] private PoolManager pool;
+    public PoolManager Pool => pool;
 
     private void Awake()
     {
