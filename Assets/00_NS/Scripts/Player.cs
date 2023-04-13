@@ -22,12 +22,17 @@ public class Player : MonoBehaviour
     /// PlayerのSprite
     /// </summary>
     private SpriteRenderer _sprite;
+    /// <summary>
+    /// PlayerのAnimator
+    /// </summary>
+    private Animator _animator;
     
     private void Awake()
     {
         // Rigidbody2D 初期化
         _rigid = GetComponent<Rigidbody2D>();
         _sprite = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -40,6 +45,9 @@ public class Player : MonoBehaviour
     
     private void LateUpdate()
     {
+        // Speedを利用して、Player Idle <-> Move アニメ変更
+        _animator.SetFloat("Speed", inputVec.magnitude);
+        
         // 入力ベクトルのx値が、0でなければ、スプライトの方向を変更
         if (inputVec.x != 0)
             _sprite.flipX = inputVec.x > 0;
