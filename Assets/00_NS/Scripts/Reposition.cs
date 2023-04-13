@@ -1,9 +1,17 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-public class TileRePosition : MonoBehaviour
+public class Reposition : MonoBehaviour
 {
     private Transform playerTransform;
-    
+    private Collider2D _coll;
+
+    private void Awake()
+    {
+        _coll = GetComponent<Collider2D>();
+    }
+
     private void Start()
     {
         // Playerのtransform取得
@@ -18,6 +26,8 @@ public class TileRePosition : MonoBehaviour
         
         // 現在のタイルマップの位置
         Vector3 myPos = transform.position;
+        // Playerの入力方向
+        Vector3 playerDir = GameManager.Instance.Player.InputVec;
         
         // PlayerとタイルマップのX、Y軸距離差計算
         float diffX = playerTransform.position.x - myPos.x;
@@ -42,6 +52,12 @@ public class TileRePosition : MonoBehaviour
                 }
                 break;
             case "Enemy":
+                // TODO. Enemyが生きている時だけ
+                if (_coll.enabled)
+                {
+                    transform.Translate(playerDir * 20 + new Vector3
+                        (Random.Range(-3f, 3f), Random.Range(-3f, 3f), 0));
+                }
                 break;
         }
     }
