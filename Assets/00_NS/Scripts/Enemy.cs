@@ -8,6 +8,10 @@ public class Enemy : MonoBehaviour
     /// </summary>
     [SerializeField]
     private float speed;
+    [SerializeField]
+    private float hp;
+    [SerializeField]
+    private float maxHp;
     /// <summary>
     /// 追跡対象 (Player)
     /// </summary>
@@ -15,10 +19,9 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D target;
 
     /// <summary>
-    /// TODO. TEST
     /// Enemy 生存の有無
     /// </summary>
-    private bool _isLive = true;
+    private bool _isLive;
 
     private Rigidbody2D _rigid;
     private SpriteRenderer _sprite;
@@ -33,6 +36,15 @@ public class Enemy : MonoBehaviour
     {
         // 活性時に、Target(Player)登録
         target = GameManager.Instance.Player.GetComponent<Rigidbody2D>();
+        _isLive = true;
+        hp = maxHp;
+    }
+
+    public void Init(SpawnData data)
+    {
+        speed = data.Speed;
+        maxHp = data.Hp;
+        hp = data.Hp;
     }
 
     private void FixedUpdate()

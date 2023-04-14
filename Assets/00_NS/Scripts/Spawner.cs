@@ -1,28 +1,41 @@
 using UnityEngine;
 
+[System.Serializable]
+public class SpawnData
+{
+    public float SpawnTime;
+    public int Hp;
+    public float Speed;
+}
+
 /// <summary>
 /// TODO. TEST
 /// </summary>
 public class Spawner : MonoBehaviour
 {
+
     [SerializeField]
-    private Transform[] spawnPoint;
+    private SpawnData[] spawnData;
+    
+    private Transform[] _spawnPoint;
 
     private int _level;
     private float _timer;
 
     private void Awake()
     {
-        spawnPoint = GetComponentsInChildren<Transform>();
+        _spawnPoint = GetComponentsInChildren<Transform>();
     }
 
     private void Update()
     {
         _timer += Time.deltaTime;
         _level = Mathf.FloorToInt(GameManager.Instance.GameTime / 10f);
+        
+        Debug.Log(_level);
 
         // TODO.
-        if (_timer > (_level == 0 ? 0.5f : 0.2f))
+        if (_timer > spawnData[_level].SpawnTime)
         {
             _timer = 0;
             Spawn();
@@ -33,6 +46,7 @@ public class Spawner : MonoBehaviour
     {
         // TODO.
         GameObject enemy = GameManager.Instance.Pool.Get(_level);
-        enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
+        enemy.transform.position = _spawnPoint[Random.Range(1, _spawnPoint.Length)].position;
+        enemy.GetComponent<Enemy>().Init(spawnData[_level]);
     }
 }

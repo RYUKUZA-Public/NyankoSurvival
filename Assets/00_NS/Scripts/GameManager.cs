@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     private float _gameTime;
     public float GameTime => _gameTime;
-    private float _maxGameTime = 2 * 10f;
+    private float _maxGameTime = 3 * 10f;
     public float MaxGameTime => _maxGameTime;
 
     private void Awake()

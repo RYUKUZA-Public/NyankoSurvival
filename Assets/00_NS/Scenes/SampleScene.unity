@@ -213,6 +213,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: []
+  spawnData:
+  - SpriteType: 0
+    SpawnTime: 1
+    Hp: 10
+    Speed: 1
+  - SpriteType: 1
+    SpawnTime: 0.7
+    Hp: 15
+    Speed: 1.5
+  - SpriteType: 2
+    SpawnTime: 0.5
+    Hp: 20
+    Speed: 2
+  - SpriteType: 3
+    SpawnTime: 0.25
+    Hp: 25
+    Speed: 1
 --- !u!1 &90658340
 GameObject:
   m_ObjectHideFlags: 0
