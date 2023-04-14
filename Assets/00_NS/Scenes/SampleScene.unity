@@ -4768,7 +4768,6 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
-  nearestTarget: {fileID: 0}
 --- !u!1 &321393507
 GameObject:
   m_ObjectHideFlags: 0
@@ -9543,7 +9542,7 @@ MonoBehaviour:
   id: 0
   prefabId: 0
   damage: 11
-  count: 1
+  count: 0
   speed: 0
 --- !u!1 &1375182226
 GameObject:

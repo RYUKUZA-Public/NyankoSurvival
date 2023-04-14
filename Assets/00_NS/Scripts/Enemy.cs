@@ -25,11 +25,13 @@ public class Enemy : MonoBehaviour
 
     private Rigidbody2D _rigid;
     private SpriteRenderer _sprite;
+    private Animator _animator;
 
     private void Awake()
     {
         _rigid = GetComponent<Rigidbody2D>();
         _sprite = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -82,6 +84,8 @@ public class Enemy : MonoBehaviour
         {
             // Live
             // Hit
+            _animator.SetTrigger("Hit");
+            
         }
         else
         {
@@ -93,6 +97,23 @@ public class Enemy : MonoBehaviour
 
     private void Dead()
     {
-        gameObject.SetActive(false);
+        _animator.SetBool("Dead", true);
+        
+        asd(() =>
+        {
+            gameObject.SetActive(false);
+        });
+    }
+
+    private Action call;
+
+    private void asd(Action call2)
+    {
+        call = call2;
+    }
+
+    public void DeadAniCall()
+    {
+        call?.Invoke();
     }
 }
