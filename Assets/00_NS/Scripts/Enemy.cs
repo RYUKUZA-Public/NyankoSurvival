@@ -70,4 +70,29 @@ public class Enemy : MonoBehaviour
         // Playerが、Enemyより左側にあるときEnemy方向転換
         _sprite.flipX = target.position.x < _rigid.position.x;
     }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (!col.CompareTag("Bullet"))
+            return;
+
+        hp -= col.GetComponent<Bullet>().Damage;
+
+        if (hp > 0)
+        {
+            // Live
+            // Hit
+        }
+        else
+        {
+            // Dead
+            Dead();
+        }
+        
+    }
+
+    private void Dead()
+    {
+        gameObject.SetActive(false);
+    }
 }
