@@ -30,6 +30,21 @@ public class Weapon : MonoBehaviour
             default:
                 break;
         }
+        
+        // TODO. TEST
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            WeaponLevelUp(20, 5);
+        }
+    }
+
+    public void WeaponLevelUp(float damage, int count)
+    {
+        this.damage = damage;
+        this.count += count;
+
+        if (id == 0)
+            Place();
     }
 
     public void Init()
@@ -49,8 +64,19 @@ public class Weapon : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            Transform bullet = GameManager.Instance.Pool.Get(PoolType.Weapon, prefabId).transform;
-            bullet.transform.parent = transform;
+            Transform bullet;
+            if (i < transform.childCount)
+            {
+                bullet = transform.GetChild(i);
+            }
+            else
+            {
+                bullet = GameManager.Instance.Pool.Get(PoolType.Weapon, prefabId).transform;
+                bullet.transform.parent = transform;
+            }
+            
+            bullet.localPosition = Vector3.zero;
+            bullet.localRotation = Quaternion.identity;
 
             Vector3 rotVec = Vector3.forward * 360 * i / count;
             bullet.Rotate(rotVec);
