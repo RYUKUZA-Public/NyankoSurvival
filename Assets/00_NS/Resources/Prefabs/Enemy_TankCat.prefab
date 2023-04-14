@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5983988075829151665}
   - component: {fileID: 5983988075829151668}
   - component: {fileID: 5983988075829149771}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy_TankCat
   m_TagString: Enemy
   m_Icon: {fileID: 0}
