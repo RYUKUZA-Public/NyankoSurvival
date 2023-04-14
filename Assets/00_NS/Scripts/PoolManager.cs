@@ -57,7 +57,7 @@ public class PoolManager : MonoBehaviour
         
         // 非活性オブジェクトがない場合、新たに生成してリターン
         GameObject newObject = Instantiate(
-            type == PoolType.Monster ? monsterPrefabs[index] : weaponPrefabs[index]);
+            type == PoolType.Monster ? monsterPrefabs[index] : weaponPrefabs[index], transform);
         objectPool.Add(newObject);
     
         return newObject;

@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Vector2 inputVec;
     public Vector2 InputVec => inputVec;
+    public EnemyScan Scan { get; set; }
     /// <summary>
     /// Player移動速度
     /// </summary>
@@ -27,13 +28,14 @@ public class Player : MonoBehaviour
     /// PlayerのAnimator
     /// </summary>
     private Animator _animator;
-    
+
     private void Awake()
     {
         // Rigidbody2D 初期化
         _rigid = GetComponent<Rigidbody2D>();
         _sprite = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
+        Scan = GetComponent<EnemyScan>();
     }
 
     private void FixedUpdate()

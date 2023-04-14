@@ -1,23 +1,24 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EnemyScan : MonoBehaviour
 {
     [SerializeField] private float scanRange;
     [SerializeField] private LayerMask targetLayer;
-    [SerializeField] private Transform nearestTarget;
+    [SerializeField] public Transform NearestTarget { get; set; }
     [SerializeField] private RaycastHit2D[] _targets;
     
     private void FixedUpdate()
     {
         _targets = Physics2D.CircleCastAll(
-            transform.position, 
+            transform.position,
             scanRange, 
             Vector2.zero, 
             0, 
             targetLayer);
 
-        nearestTarget = GetNearest();
+        NearestTarget = GetNearest();
 
     }
 

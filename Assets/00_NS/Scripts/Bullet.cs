@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -7,12 +8,40 @@ public class Bullet : MonoBehaviour
     public float Damage => damage;
     [SerializeField]
     private int per;
-
     public int Per => per;
 
-    public void Init(float damage, int per)
+    private Rigidbody2D _rigid;
+
+    private void Awake()
+    {
+        _rigid = GetComponent<Rigidbody2D>();
+    }
+
+    public void Init(float damage, int per, Vector3 dir)
     {
         this.damage = damage;
         this.per = per;
+
+        if (per > -1)
+        {
+            _rigid.velocity = dir * 15f;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (!col.CompareTag("Enemy") || per == -1)
+            return;
+
+        per--;
+
+        if (per == -1)
+        {
+            _rigid.velocity = Vector2.zero;
+            gameObject.SetActive(false);
+        }
+
+
+
     }
 }

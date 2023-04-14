@@ -9,13 +9,32 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     private float damage;
     [SerializeField]
-    private float count;
+    private int count;
     [SerializeField]
     private float speed;
+
+    private float _timer;
+    private Player _player;
 
     private void Start()
     {
         Init();
+    }
+    
+    public void Init()
+    {
+        _player = GameManager.Instance.Player;
+        
+        switch (id)
+        {
+            case 0:
+                speed = 150;
+                Place();
+                break;
+            default:
+                speed = 0.3f;
+                break;
+        }
     }
 
     private void Update()
@@ -27,6 +46,12 @@ public class Weapon : MonoBehaviour
                 
                 break;
             default:
+                _timer += Time.deltaTime;
+                if (_timer > speed)
+                {
+                    _timer = 0;
+                    Fire();
+                }
                 break;
         }
         
@@ -46,18 +71,7 @@ public class Weapon : MonoBehaviour
             Place();
     }
 
-    public void Init()
-    {
-        switch (id)
-        {
-            case 0:
-                speed = 150;
-                Place();
-                break;
-            default:
-                break;
-        }
-    }
+    
 
     private void Place()
     {
@@ -82,7 +96,25 @@ public class Weapon : MonoBehaviour
             bullet.Translate(bullet.up * 1.5f, Space.World);
             
             // 近接は、無限に貫通すりので、-1 (Per)
-            bullet.GetComponent<Bullet>().Init(damage, -1);
+            bullet.GetComponent<Bullet>().Init(damage, -1, Vector3.zero);
         }   
+    }
+
+    private void Fire()
+    {
+        if (!_player.Scan.NearestTarget)
+            return;
+
+        Vector3 targetPos = _player.Scan.NearestTarget.position;
+        Vector3 dir = targetPos - transform.position;
+        dir = dir.normalized;
+        
+        
+        
+        Transform bullet = GameManager.Instance.Pool.Get(PoolType.Weapon, prefabId).transform;
+        bullet.position = transform.position;
+        bullet.rotation = Quaternion.FromToRotation(Vector3.up, dir);
+        
+        bullet.GetComponent<Bullet>().Init(damage, count, dir);
     }
 }
