@@ -39,6 +39,9 @@ public class HUD : MonoBehaviour
                 myText.text = $"{min:D2}:{sec:D2}";
                 break;
             case InfoType.Hp:
+                float currentHp = GameManager.Instance.Hp;
+                float maxHp = GameManager.Instance.MaxHp;
+                mySlider.value = currentHp / maxHp;
                 break;
         }
     }

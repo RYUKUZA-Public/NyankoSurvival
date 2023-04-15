@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -12,8 +13,12 @@ public class GameManager : MonoBehaviour
     
     [Header("[ Player Info ]")]
     [SerializeField] private int level;
-
     public int Level => level;
+    [SerializeField] private int hp;
+    public int Hp => hp;
+    [SerializeField] private int maxHp = 100;
+    public int MaxHp => maxHp;
+    
     [SerializeField] private int kill;
     public int Kill { get { return kill; } set { kill = value; } }
 
@@ -34,7 +39,12 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
     }
-    
+
+    private void Start()
+    {
+        hp = maxHp;
+    }
+
     private void Update()
     {
         _gameTime += Time.deltaTime;
