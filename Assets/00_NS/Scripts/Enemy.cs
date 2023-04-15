@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
     private bool _isLive;
 
     private Rigidbody2D _rigid;
+    private Collider2D _coll;
     private SpriteRenderer _sprite;
     private Animator _animator;
     private WaitForFixedUpdate _wait;
@@ -32,6 +33,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         _rigid = GetComponent<Rigidbody2D>();
+        _coll = GetComponent<Collider2D>();
         _sprite = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
         _wait = new WaitForFixedUpdate();
@@ -43,6 +45,12 @@ public class Enemy : MonoBehaviour
         target = GameManager.Instance.Player.GetComponent<Rigidbody2D>();
         _isLive = true;
         hp = maxHp;
+        
+        _isLive = true;
+        _coll.enabled = true;
+        _rigid.simulated = true;
+        _sprite.sortingOrder = 2;
+        _animator.SetBool("Dead", false);
     }
 
     public void Init(SpawnData data)
@@ -91,8 +99,11 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            // Dead
-            Dead();
+            _isLive = false;
+            _coll.enabled = false;
+            _rigid.simulated = false;
+            _sprite.sortingOrder = 1;
+            _animator.SetBool("Dead", true);
         }
         
     }
@@ -109,23 +120,7 @@ public class Enemy : MonoBehaviour
 
     private void Dead()
     {
-        _animator.SetBool("Dead", true);
-        
-        asd(() =>
-        {
-            gameObject.SetActive(false);
-        });
+        gameObject.SetActive(false);
     }
-
-    private Action call;
-
-    private void asd(Action call2)
-    {
-        call = call2;
-    }
-
-    public void DeadAniCall()
-    {
-        call?.Invoke();
-    }
+    
 }
