@@ -12,12 +12,17 @@ public class GameManager : MonoBehaviour
     
     [Header("[ Player Info ]")]
     [SerializeField] private int level;
+
+    public int Level => level;
     [SerializeField] private int kill;
     public int Kill { get { return kill; } set { kill = value; } }
 
     [SerializeField] private int exp;
+
+    public int Exp => exp;
     // TODO.
     [SerializeField] private int[] nextExp = { 10, 30, 60, 100, 150, 210, 280, 360, 450, 600 };
+    public int[] NextExp => nextExp;
     
     [Header("[ Game Object ]")]
     [SerializeField] private Player player;
