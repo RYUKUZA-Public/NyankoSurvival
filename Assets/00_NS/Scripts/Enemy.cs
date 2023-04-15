@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -25,11 +26,15 @@ public class Enemy : MonoBehaviour
 
     private Rigidbody2D _rigid;
     private SpriteRenderer _sprite;
-
+    private Animator _animator;
+    private WaitForFixedUpdate _wait;
+    
     private void Awake()
     {
         _rigid = GetComponent<Rigidbody2D>();
         _sprite = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
+        _wait = new WaitForFixedUpdate();
     }
 
     private void OnEnable()
@@ -49,7 +54,7 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!_isLive)
+        if (!_isLive || _animator.GetCurrentAnimatorStateInfo(0).IsName("Hit"))
             return;
 
         // PlayerとEnemyの間の方向ベクトル計算
@@ -77,11 +82,12 @@ public class Enemy : MonoBehaviour
             return;
 
         hp -= col.GetComponent<Bullet>().Damage;
+        StartCoroutine(KnockBack());
 
+        // Hit
         if (hp > 0)
         {
-            // Live
-            // Hit
+            _animator.SetTrigger("Hit");
         }
         else
         {
@@ -91,8 +97,35 @@ public class Enemy : MonoBehaviour
         
     }
 
+    private IEnumerator KnockBack()
+    {
+        yield return _wait;
+        Vector3 playerPos = GameManager.Instance.Player.transform.position;
+        Vector3 dirVec = transform.position - playerPos;
+        _rigid.AddForce(dirVec.normalized * 3, ForceMode2D.Impulse);
+        
+        Debug.Log("1111111111111111111");
+    }
+
     private void Dead()
     {
-        gameObject.SetActive(false);
+        _animator.SetBool("Dead", true);
+        
+        asd(() =>
+        {
+            gameObject.SetActive(false);
+        });
+    }
+
+    private Action call;
+
+    private void asd(Action call2)
+    {
+        call = call2;
+    }
+
+    public void DeadAniCall()
+    {
+        call?.Invoke();
     }
 }
