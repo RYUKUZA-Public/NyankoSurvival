@@ -86,7 +86,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (!col.CompareTag("Bullet"))
+        if (!col.CompareTag("Bullet") || !_isLive)
             return;
 
         hp -= col.GetComponent<Bullet>().Damage;
@@ -104,6 +104,8 @@ public class Enemy : MonoBehaviour
             _rigid.simulated = false;
             _sprite.sortingOrder = 1;
             _animator.SetBool("Dead", true);
+            GameManager.Instance.Kill++;
+            GameManager.Instance.GetExp();
         }
         
     }
@@ -114,8 +116,6 @@ public class Enemy : MonoBehaviour
         Vector3 playerPos = GameManager.Instance.Player.transform.position;
         Vector3 dirVec = transform.position - playerPos;
         _rigid.AddForce(dirVec.normalized * 3, ForceMode2D.Impulse);
-        
-        Debug.Log("1111111111111111111");
     }
 
     private void Dead()
