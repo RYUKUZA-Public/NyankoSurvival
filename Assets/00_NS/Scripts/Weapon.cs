@@ -54,9 +54,11 @@ public class Weapon : MonoBehaviour
                 Place();
                 break;
             default:
-                speed = 0.3f;
+                speed = 0.4f;
                 break;
         }
+        
+        _player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
 
     private void Update()
@@ -91,6 +93,8 @@ public class Weapon : MonoBehaviour
 
         if (id == 0)
             Place();
+        
+        _player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
 
     
