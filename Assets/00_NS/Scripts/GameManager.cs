@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -41,6 +43,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LevelUpPop levelUpPop;
     public LevelUpPop LevelUpPop => levelUpPop;
 
+    [SerializeField] private GameObject uiResult;
+
     private void Awake()
     {
         Instance = this;
@@ -53,6 +57,25 @@ public class GameManager : MonoBehaviour
         //TODO. Test
         levelUpPop.Select(0);
         isLive = true;
+    }
+
+    public void GameRetry()
+    {
+        SceneManager.LoadScene(0);
+        TimeResume();
+    }
+
+    public void GameOver()
+    {
+        StartCoroutine(GameOverRoutine());
+    }
+
+    private IEnumerator GameOverRoutine()
+    {
+        isLive = false;
+        yield return new WaitForSeconds(0.5f);
+        uiResult.SetActive(true);
+        TimeStop();
     }
 
     private void Update()
