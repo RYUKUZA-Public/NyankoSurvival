@@ -1,16 +1,21 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using static System.String;
 
 public class Item : MonoBehaviour
 {
     public ItemData data;
     public int level;
     public Weapon weapon;
+    public Gear gear;
+
 
     public Image icon;
     public Text levelText;
+    private Text nameText;
+    private Text descText;
 
-    public Gear gear;
 
     private void Awake()
     {
@@ -19,13 +24,35 @@ public class Item : MonoBehaviour
 
         Text[] texts = GetComponentsInChildren<Text>();
         levelText = texts[0];
+        nameText = texts[1];
+        descText = texts[2];
+
+        nameText.text = data.itemName;
     }
 
-    private void LateUpdate()
+    private void OnEnable()
     {
         levelText.text = $"Lv.{level + 1}";
-    }
 
+        switch (data.itemType)
+        {
+            case ItemData.ItemType.Melee:
+            case ItemData.ItemType.Range:
+                descText.text = Format(data.itemDesc, data.damages[level] * 100, data.counts[level]);
+                break;
+            case ItemData.ItemType.Glove:
+            case ItemData.ItemType.Shoe:
+                descText.text = Format(data.itemDesc, data.damages[level] * 100);
+                break;
+            default:
+                descText.text = Format(data.itemDesc);
+                break;
+            
+        }
+
+        
+    }
+    
     public void OnClick()
     {
         switch (data.itemType)

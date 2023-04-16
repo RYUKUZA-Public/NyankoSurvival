@@ -293,7 +293,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 32, y: 7}
+  m_AnchoredPosition: {x: 31, y: 7}
   m_SizeDelta: {x: 23.04, y: 23.04}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &104032004
@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 0.2, y: 0.2}
+  m_EffectDistance: {x: 0.15, y: 0.15}
   m_UseGraphicAlpha: 0
 --- !u!114 &104032005
 MonoBehaviour:
@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 0.5, y: -0.5}
+  m_EffectDistance: {x: 0.4, y: -0.4}
   m_UseGraphicAlpha: 0
 --- !u!114 &104032006
 MonoBehaviour:
@@ -347,19 +347,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e715fcabbb6163e48b780b3b92979f8e, type: 3}
-    m_FontSize: 8
+    m_Font: {fileID: 12800000, guid: 99ab3d91c01a94848ba436ba0aefce00, type: 3}
+    m_FontSize: 7
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 6
-    m_MaxSize: 40
+    m_MaxSize: 75
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: ITEM NAME
+  m_Text: "\u30A2\u30A4\u30C6\u30E0\u540D"
 --- !u!222 &104032007
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4798,7 +4798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 0.4, y: 0.4}
+  m_EffectDistance: {x: 0.3, y: 0.3}
   m_UseGraphicAlpha: 0
 --- !u!114 &244168678
 MonoBehaviour:
@@ -4813,7 +4813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 0.75, y: -0.75}
+  m_EffectDistance: {x: 0.5, y: -0.5}
   m_UseGraphicAlpha: 0
 --- !u!114 &244168679
 MonoBehaviour:
@@ -4836,8 +4836,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e715fcabbb6163e48b780b3b92979f8e, type: 3}
-    m_FontSize: 7
+    m_Font: {fileID: 12800000, guid: 99ab3d91c01a94848ba436ba0aefce00, type: 3}
+    m_FontSize: 6
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 6
@@ -5104,7 +5104,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 32, y: -4}
+  m_AnchoredPosition: {x: 31, y: -4}
   m_SizeDelta: {x: 23.04, y: 23.04}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &265664799
@@ -5128,11 +5128,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e715fcabbb6163e48b780b3b92979f8e, type: 3}
-    m_FontSize: 7
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: 99ab3d91c01a94848ba436ba0aefce00, type: 3}
+    m_FontSize: 5
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 6
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -5140,9 +5140,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'DESC TEST
-
-    DESC TEST'
+  m_Text: "\u30A2\u30A4\u30C6\u30E0\u8AAC\u660E1\n\u30A2\u30A4\u30C6\u30E0\u8AAC\u660E2"
 --- !u!222 &265664800
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5282,7 +5280,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 32, y: 7}
+  m_AnchoredPosition: {x: 31, y: 7}
   m_SizeDelta: {x: 23.04, y: 23.04}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &316199554
@@ -5298,7 +5296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 0.2, y: 0.2}
+  m_EffectDistance: {x: 0.15, y: 0.15}
   m_UseGraphicAlpha: 0
 --- !u!114 &316199555
 MonoBehaviour:
@@ -5313,7 +5311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 0.5, y: -0.5}
+  m_EffectDistance: {x: 0.4, y: -0.4}
   m_UseGraphicAlpha: 0
 --- !u!114 &316199556
 MonoBehaviour:
@@ -5336,19 +5334,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e715fcabbb6163e48b780b3b92979f8e, type: 3}
-    m_FontSize: 8
+    m_Font: {fileID: 12800000, guid: 99ab3d91c01a94848ba436ba0aefce00, type: 3}
+    m_FontSize: 7
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 6
-    m_MaxSize: 40
+    m_MaxSize: 75
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: ITEM NAME
+  m_Text: "\u30A2\u30A4\u30C6\u30E0\u540D"
 --- !u!222 &316199557
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9713,7 +9711,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -3}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &378762433
@@ -9737,7 +9735,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e715fcabbb6163e48b780b3b92979f8e, type: 3}
+    m_Font: {fileID: 12800000, guid: a8ff0585847d7724980334be7b3433e0, type: 3}
     m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
@@ -9749,7 +9747,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level Up!!
+  m_Text: "\u30EC\u30D9\u30EB\u4E0A\u6607\uFF01"
 --- !u!222 &378762434
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10024,9 +10022,9 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: e48a23b9bf35de94e8090ef181462e74, type: 2}
   level: 0
   weapon: {fileID: 0}
+  gear: {fileID: 0}
   icon: {fileID: 0}
   levelText: {fileID: 0}
-  gear: {fileID: 0}
 --- !u!114 &532689097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10259,8 +10257,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e715fcabbb6163e48b780b3b92979f8e, type: 3}
-    m_FontSize: 7
+    m_Font: {fileID: 12800000, guid: 99ab3d91c01a94848ba436ba0aefce00, type: 3}
+    m_FontSize: 6
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 6
@@ -10293,7 +10291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 0.4, y: 0.4}
+  m_EffectDistance: {x: 0.3, y: 0.3}
   m_UseGraphicAlpha: 0
 --- !u!114 &662483373
 MonoBehaviour:
@@ -10308,7 +10306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 0.75, y: -0.75}
+  m_EffectDistance: {x: 0.5, y: -0.5}
   m_UseGraphicAlpha: 0
 --- !u!1 &662526391
 GameObject:
@@ -10578,9 +10576,9 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 37420765d2d0a1842aa59cdb2e36bbc7, type: 2}
   level: 0
   weapon: {fileID: 0}
+  gear: {fileID: 0}
   icon: {fileID: 0}
   levelText: {fileID: 0}
-  gear: {fileID: 0}
 --- !u!114 &743019019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10835,7 +10833,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 32, y: -4}
+  m_AnchoredPosition: {x: 31, y: -4}
   m_SizeDelta: {x: 23.04, y: 23.04}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &836758518
@@ -10859,11 +10857,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e715fcabbb6163e48b780b3b92979f8e, type: 3}
-    m_FontSize: 7
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: 99ab3d91c01a94848ba436ba0aefce00, type: 3}
+    m_FontSize: 5
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 6
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -10871,9 +10869,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'DESC TEST
-
-    DESC TEST'
+  m_Text: "\u30A2\u30A4\u30C6\u30E0\u8AAC\u660E1\n\u30A2\u30A4\u30C6\u30E0\u8AAC\u660E2"
 --- !u!222 &836758519
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11366,7 +11362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 0.4, y: 0.4}
+  m_EffectDistance: {x: 0.3, y: 0.3}
   m_UseGraphicAlpha: 0
 --- !u!114 &1124358967
 MonoBehaviour:
@@ -11381,7 +11377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 0.75, y: -0.75}
+  m_EffectDistance: {x: 0.5, y: -0.5}
   m_UseGraphicAlpha: 0
 --- !u!114 &1124358968
 MonoBehaviour:
@@ -11404,8 +11400,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e715fcabbb6163e48b780b3b92979f8e, type: 3}
-    m_FontSize: 7
+    m_Font: {fileID: 12800000, guid: 99ab3d91c01a94848ba436ba0aefce00, type: 3}
+    m_FontSize: 6
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 6
@@ -11591,7 +11587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 0.4, y: 0.4}
+  m_EffectDistance: {x: 0.3, y: 0.3}
   m_UseGraphicAlpha: 0
 --- !u!114 &1218333652
 MonoBehaviour:
@@ -11606,7 +11602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 0.75, y: -0.75}
+  m_EffectDistance: {x: 0.5, y: -0.5}
   m_UseGraphicAlpha: 0
 --- !u!114 &1218333653
 MonoBehaviour:
@@ -11629,8 +11625,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e715fcabbb6163e48b780b3b92979f8e, type: 3}
-    m_FontSize: 7
+    m_Font: {fileID: 12800000, guid: 99ab3d91c01a94848ba436ba0aefce00, type: 3}
+    m_FontSize: 6
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 6
@@ -12007,9 +12003,9 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 2f286d9fe9edbe946a2f20d8aa0dbe00, type: 2}
   level: 0
   weapon: {fileID: 0}
+  gear: {fileID: 0}
   icon: {fileID: 0}
   levelText: {fileID: 0}
-  gear: {fileID: 0}
 --- !u!1 &1366927242
 GameObject:
   m_ObjectHideFlags: 0
@@ -12047,7 +12043,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 32, y: 7}
+  m_AnchoredPosition: {x: 31, y: 7}
   m_SizeDelta: {x: 23.04, y: 23.04}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1366927244
@@ -12063,7 +12059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 0.2, y: 0.2}
+  m_EffectDistance: {x: 0.15, y: 0.15}
   m_UseGraphicAlpha: 0
 --- !u!114 &1366927245
 MonoBehaviour:
@@ -12078,7 +12074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 0.5, y: -0.5}
+  m_EffectDistance: {x: 0.4, y: -0.4}
   m_UseGraphicAlpha: 0
 --- !u!114 &1366927246
 MonoBehaviour:
@@ -12101,19 +12097,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e715fcabbb6163e48b780b3b92979f8e, type: 3}
-    m_FontSize: 8
+    m_Font: {fileID: 12800000, guid: 99ab3d91c01a94848ba436ba0aefce00, type: 3}
+    m_FontSize: 7
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 6
-    m_MaxSize: 40
+    m_MaxSize: 75
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: ITEM NAME
+  m_Text: "\u30A2\u30A4\u30C6\u30E0\u540D"
 --- !u!222 &1366927247
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21249,7 +21245,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 32, y: 7}
+  m_AnchoredPosition: {x: 31, y: 7}
   m_SizeDelta: {x: 23.04, y: 23.04}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1628423987
@@ -21265,7 +21261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 0.2, y: 0.2}
+  m_EffectDistance: {x: 0.15, y: 0.15}
   m_UseGraphicAlpha: 0
 --- !u!114 &1628423988
 MonoBehaviour:
@@ -21280,7 +21276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 0.5, y: -0.5}
+  m_EffectDistance: {x: 0.4, y: -0.4}
   m_UseGraphicAlpha: 0
 --- !u!114 &1628423989
 MonoBehaviour:
@@ -21303,19 +21299,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e715fcabbb6163e48b780b3b92979f8e, type: 3}
-    m_FontSize: 8
+    m_Font: {fileID: 12800000, guid: 99ab3d91c01a94848ba436ba0aefce00, type: 3}
+    m_FontSize: 7
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 6
-    m_MaxSize: 40
+    m_MaxSize: 75
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: ITEM NAME
+  m_Text: "\u30A2\u30A4\u30C6\u30E0\u540D"
 --- !u!222 &1628423990
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21361,7 +21357,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 32, y: 7}
+  m_AnchoredPosition: {x: 31, y: 7}
   m_SizeDelta: {x: 23.04, y: 23.04}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1661852997
@@ -21377,7 +21373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 0.2, y: 0.2}
+  m_EffectDistance: {x: 0.15, y: 0.15}
   m_UseGraphicAlpha: 0
 --- !u!114 &1661852998
 MonoBehaviour:
@@ -21392,7 +21388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 0.5, y: -0.5}
+  m_EffectDistance: {x: 0.4, y: -0.4}
   m_UseGraphicAlpha: 0
 --- !u!114 &1661852999
 MonoBehaviour:
@@ -21415,19 +21411,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e715fcabbb6163e48b780b3b92979f8e, type: 3}
-    m_FontSize: 8
+    m_Font: {fileID: 12800000, guid: 99ab3d91c01a94848ba436ba0aefce00, type: 3}
+    m_FontSize: 7
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 6
-    m_MaxSize: 40
+    m_MaxSize: 75
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: ITEM NAME
+  m_Text: "\u30A2\u30A4\u30C6\u30E0\u540D"
 --- !u!222 &1661853000
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21547,7 +21543,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 32, y: -4}
+  m_AnchoredPosition: {x: 31, y: -4}
   m_SizeDelta: {x: 23.04, y: 23.04}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1700984548
@@ -21571,11 +21567,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e715fcabbb6163e48b780b3b92979f8e, type: 3}
-    m_FontSize: 7
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: 99ab3d91c01a94848ba436ba0aefce00, type: 3}
+    m_FontSize: 5
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 6
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -21583,9 +21579,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'DESC TEST
-
-    DESC TEST'
+  m_Text: "\u30A2\u30A4\u30C6\u30E0\u8AAC\u660E1\n\u30A2\u30A4\u30C6\u30E0\u8AAC\u660E2"
 --- !u!222 &1700984549
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21684,9 +21678,9 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: b3a46dbf23be8b644898da8fe5a40c6a, type: 2}
   level: 0
   weapon: {fileID: 0}
+  gear: {fileID: 0}
   icon: {fileID: 0}
   levelText: {fileID: 0}
-  gear: {fileID: 0}
 --- !u!114 &1726580646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21892,7 +21886,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 32, y: -4}
+  m_AnchoredPosition: {x: 31, y: -4}
   m_SizeDelta: {x: 23.04, y: 23.04}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1795402234
@@ -21916,11 +21910,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e715fcabbb6163e48b780b3b92979f8e, type: 3}
-    m_FontSize: 7
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: 99ab3d91c01a94848ba436ba0aefce00, type: 3}
+    m_FontSize: 5
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 6
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -21928,9 +21922,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'DESC TEST
-
-    DESC TEST'
+  m_Text: "\u30A2\u30A4\u30C6\u30E0\u8AAC\u660E1\n\u30A2\u30A4\u30C6\u30E0\u8AAC\u660E2"
 --- !u!222 &1795402235
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22379,7 +22371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 0.4, y: 0.4}
+  m_EffectDistance: {x: 0.3, y: 0.3}
   m_UseGraphicAlpha: 0
 --- !u!114 &2013610159
 MonoBehaviour:
@@ -22394,7 +22386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 0.75, y: -0.75}
+  m_EffectDistance: {x: 0.5, y: -0.5}
   m_UseGraphicAlpha: 0
 --- !u!114 &2013610160
 MonoBehaviour:
@@ -22417,8 +22409,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e715fcabbb6163e48b780b3b92979f8e, type: 3}
-    m_FontSize: 7
+    m_Font: {fileID: 12800000, guid: 99ab3d91c01a94848ba436ba0aefce00, type: 3}
+    m_FontSize: 6
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 6
@@ -22528,9 +22520,9 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 16a26785ed0600c408db159f64a41457, type: 2}
   level: 0
   weapon: {fileID: 0}
+  gear: {fileID: 0}
   icon: {fileID: 0}
   levelText: {fileID: 0}
-  gear: {fileID: 0}
 --- !u!114 &2060161224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22697,7 +22689,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 32, y: -4}
+  m_AnchoredPosition: {x: 31, y: -4}
   m_SizeDelta: {x: 23.04, y: 23.04}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &2106134624
@@ -22721,11 +22713,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e715fcabbb6163e48b780b3b92979f8e, type: 3}
-    m_FontSize: 7
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: 99ab3d91c01a94848ba436ba0aefce00, type: 3}
+    m_FontSize: 5
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 6
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -22733,9 +22725,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'DESC TEST
-
-    DESC TEST'
+  m_Text: "\u30A2\u30A4\u30C6\u30E0\u8AAC\u660E1\n\u30A2\u30A4\u30C6\u30E0\u8AAC\u660E2"
 --- !u!222 &2106134625
 CanvasRenderer:
   m_ObjectHideFlags: 0
