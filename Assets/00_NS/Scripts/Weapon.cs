@@ -130,8 +130,8 @@ public class Weapon : MonoBehaviour
             bullet.Rotate(rotVec);
             bullet.Translate(bullet.up * 1.5f, Space.World);
             
-            // 近接は、無限に貫通すりので、-1 (Per)
-            bullet.GetComponent<Bullet>().Init(damage, -1, Vector3.zero);
+            // 近接は、無限に貫通すりので、-100 (Per)
+            bullet.GetComponent<Bullet>().Init(damage, -100, Vector3.zero);
         }   
     }
 
