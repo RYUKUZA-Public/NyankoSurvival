@@ -11,6 +11,10 @@ public class Player : MonoBehaviour
     private Vector2 inputVec;
     public Vector2 InputVec => inputVec;
     public EnemyScan Scan { get; set; }
+
+    public Hand[] hands;
+    
+    
     /// <summary>
     /// Player移動速度
     /// </summary>
@@ -38,6 +42,7 @@ public class Player : MonoBehaviour
         _sprite = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
         Scan = GetComponent<EnemyScan>();
+        hands = GetComponentsInChildren<Hand>(true);
     }
 
     private void FixedUpdate()
