@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemId: 0
-  itemName: TEST NAME
-  itemDesc: TEST DESC
+  itemName: "\u79FB\u52D5\u901F\u5EA6\u52B9\u679C"
+  itemDesc: "\u79FB\u52D5\u901F\u5EA6{0}%\u5897\u52A0"
   itemIcon: {fileID: 21300000, guid: a4ae5d6f292f3014d972f69c05bff26b, type: 3}
   baseDamage: 0
   baseCount: 0
@@ -27,3 +27,4 @@ MonoBehaviour:
   - 0.5
   counts: 0000000000000000000000000000000000000000
   projectile: {fileID: 0}
+  hand: {fileID: 0}
