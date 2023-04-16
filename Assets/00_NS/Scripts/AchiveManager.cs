@@ -44,4 +44,29 @@ public class AchiveManager : MonoBehaviour
             unlockCharacter[i].SetActive(isUnlock);
         }
     }
+
+    private void LateUpdate()
+    {
+        foreach (Achive achive in _achives)
+        {
+            CheckAchive(achive);
+        }
+    }
+
+    private void CheckAchive(Achive achive)
+    {
+        bool isAchive = false;
+
+        switch (achive)
+        {
+            case Achive.UnlockNoToRi:
+                isAchive = GameManager.Instance.Kill >= 10;
+                break;
+        }
+
+        if (isAchive && PlayerPrefs.GetInt(achive.ToString()) == 0)
+        {
+            PlayerPrefs.SetInt(achive.ToString(), 1);
+        }
+    }
 }
