@@ -16,6 +16,8 @@ public class Spawner : MonoBehaviour
 
     [SerializeField]
     private SpawnData[] spawnData;
+
+    private float _levelTime;
     
     private Transform[] _spawnPoint;
 
@@ -25,6 +27,7 @@ public class Spawner : MonoBehaviour
     private void Awake()
     {
         _spawnPoint = GetComponentsInChildren<Transform>();
+        _levelTime = GameManager.Instance.MaxGameTime / spawnData.Length;
     }
 
     private void Update()
@@ -33,11 +36,8 @@ public class Spawner : MonoBehaviour
             return;
         
         _timer += Time.deltaTime;
-        _level = Mathf.Min(Mathf.FloorToInt(GameManager.Instance.GameTime / 10f), spawnData.Length - 1 );
-        
-        Debug.Log(_level);
+        _level = Mathf.Min(Mathf.FloorToInt(GameManager.Instance.GameTime / _levelTime), spawnData.Length - 1 );
 
-        // TODO.
         if (_timer > spawnData[_level].SpawnTime)
         {
             _timer = 0;

@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -34,7 +32,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int exp;
     public int Exp => exp;
     // TODO.
-    [SerializeField] private int[] nextExp = { 10, 30, 60, 100, 150, 210, 280, 360, 450, 600 };
+    [SerializeField] private int[] nextExp = { 3, 5, 10, 100, 150, 210, 280, 360, 450, 600 };
     public int[] NextExp => nextExp;
     
     public int PlayerId { get; set; }

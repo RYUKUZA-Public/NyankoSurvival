@@ -10964,13 +10964,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLive: 0
   _gameTime: 0
-  _maxGameTime: 30
+  _maxGameTime: 300
   level: 0
   hp: 0
   maxHp: 100
   kill: 0
   exp: 0
-  nextExp: 0100000002000000030000000400000005000000060000000700000008000000090000000a000000
+  nextExp: 03000000050000000a0000006400000096000000d20000001801000068010000c201000058020000
   player: {fileID: 264678233}
   pool: {fileID: 1403581677}
   levelUpPop: {fileID: 957841563}
