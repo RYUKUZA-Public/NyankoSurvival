@@ -4,6 +4,8 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField]
     private int id;
+
+    public int Id => id;
     [SerializeField]
     private int prefabId;
     [SerializeField]
@@ -12,6 +14,8 @@ public class Weapon : MonoBehaviour
     private int count;
     [SerializeField]
     private float speed;
+
+    public float Speed { get { return speed; } set { speed = value; } }
 
     private float _timer;
     private Player _player;

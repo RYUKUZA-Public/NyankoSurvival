@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     /// </summary>
     [SerializeField]
     private float speed;
+    public float Speed { get { return speed; } set { speed = value; } }
+    
     /// <summary>
     /// Player Rigidbody 2D コンポーネント
     /// </summary>

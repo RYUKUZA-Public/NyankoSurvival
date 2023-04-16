@@ -284,6 +284,7 @@ MonoBehaviour:
   weapon: {fileID: 0}
   icon: {fileID: 0}
   levelText: {fileID: 0}
+  gear: {fileID: 0}
 --- !u!114 &85477861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5090,7 +5091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputVec: {x: 0, y: 0}
-  speed: 5
+  speed: 3
 --- !u!114 &264678234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9832,6 +9833,7 @@ MonoBehaviour:
   weapon: {fileID: 0}
   icon: {fileID: 0}
   levelText: {fileID: 0}
+  gear: {fileID: 0}
 --- !u!114 &633689520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10544,6 +10546,7 @@ MonoBehaviour:
   weapon: {fileID: 0}
   icon: {fileID: 0}
   levelText: {fileID: 0}
+  gear: {fileID: 0}
 --- !u!114 &843965016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11188,6 +11191,7 @@ MonoBehaviour:
   weapon: {fileID: 0}
   icon: {fileID: 0}
   levelText: {fileID: 0}
+  gear: {fileID: 0}
 --- !u!1 &1375182226
 GameObject:
   m_ObjectHideFlags: 0
@@ -11505,6 +11509,7 @@ MonoBehaviour:
   weapon: {fileID: 0}
   icon: {fileID: 0}
   levelText: {fileID: 0}
+  gear: {fileID: 0}
 --- !u!114 &1465811216
 MonoBehaviour:
   m_ObjectHideFlags: 0

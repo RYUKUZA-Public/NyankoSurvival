@@ -11,6 +11,8 @@ public class Item : MonoBehaviour
     public Image icon;
     public Text levelText;
 
+    public Gear gear;
+
     private void Awake()
     {
         icon = GetComponentsInChildren<Image>()[1];
@@ -50,10 +52,18 @@ public class Item : MonoBehaviour
                 
                 break;
             case ItemData.ItemType.Glove:
-                
-                break;
             case ItemData.ItemType.Shoe:
-                
+                if (level == 0)
+                {
+                    GameObject newGear = new GameObject();
+                    gear = newGear.AddComponent<Gear>();
+                    gear.Init(data);
+                }
+                else
+                {
+                    float nextRate = data.damages[level];
+                    gear.GearLevelUp(nextRate);
+                }
                 break;
             case ItemData.ItemType.Heal:
                 
