@@ -17,11 +17,11 @@ public class GameManager : MonoBehaviour
     [Header("[ Player Info ]")]
     [SerializeField] private int level;
     public int Level => level;
-    [SerializeField] private int hp;
-    public int Hp { get => hp; set => hp = value; }
+    [SerializeField] private float hp;
+    public float Hp { get => hp; set => hp = value; }
 
-    [SerializeField] private int maxHp = 100;
-    public int MaxHp => maxHp;
+    [SerializeField] private float maxHp = 100;
+    public float MaxHp => maxHp;
     
     [SerializeField] private int kill;
     public int Kill { get { return kill; } set { kill = value; } }

@@ -80,4 +80,22 @@ public class Player : MonoBehaviour
         // 入力値をVector2形式に、変換して入力ベクトルに保存
         inputVec = value.Get<Vector2>();
     }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (!GameManager.Instance.IsLive)
+            return;
+
+        GameManager.Instance.Hp -= Time.deltaTime * 10;
+
+        if (GameManager.Instance.Hp < 0)
+        {
+            // Dead
+            for (int i = 1; i < transform.childCount; i++)
+                transform.GetChild(i).gameObject.SetActive(false);
+            
+            _animator.SetTrigger("Dead");
+        }
+
+    }
 }
