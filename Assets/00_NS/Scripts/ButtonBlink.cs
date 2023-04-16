@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,40 +12,29 @@ public class ButtonBlink : MonoBehaviour
     /// <summary>
     /// 点滅色配列
     /// </summary>
-    public Color[] outlineColors;
-
-    /// <summary>
-    /// 現在の色
-    /// </summary>
-    private int currentIndex = 0;
-
+    [SerializeField]
+    private Color[] outlineColors;
+    
     /// <summary>
     /// 色変更周期 (秒)
     /// </summary>
-    public float changeInterval = 0.1f;
-
-    // 次の色変更時間
-    private float nextChangeTime = 0f;
+    [SerializeField]
+    private float blinkSpeed = 0.1f;
     
     void Start()
     {
         blinkImage = GetComponent<Image>();
-        blinkImage.color = outlineColors[currentIndex];
+        StartCoroutine(Blink());
     }
     
-    void Update()
+    private IEnumerator Blink()
     {
-        // 変更周期ごとに色変更
-        if (Time.time > nextChangeTime)
+        int index = 0;
+        while (true)
         {
-            currentIndex++;
-            if (currentIndex >= outlineColors.Length)
-            {
-                currentIndex = 0;
-            }
-
-            blinkImage.GetComponent<Image>().color = outlineColors[currentIndex];
-            nextChangeTime = Time.time + changeInterval;
+            blinkImage.color = outlineColors[index];
+            index = (index + 1) % outlineColors.Length;
+            yield return new WaitForSecondsRealtime(blinkSpeed);
         }
     }
 }
