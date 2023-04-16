@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class AchiveManager : MonoBehaviour
@@ -9,13 +7,18 @@ public class AchiveManager : MonoBehaviour
     [SerializeField] private GameObject[] lockCharacter;
     [SerializeField] private GameObject[] unlockCharacter;
 
+    [SerializeField] private GameObject uiNotice;
+    
     enum Achive { UnlockNoToRi }
 
     private Achive[] _achives;
 
+    private WaitForSecondsRealtime _wait;
+
     private void Awake()
     {
         _achives = (Achive[])Enum.GetValues(typeof(Achive));
+        _wait = new WaitForSecondsRealtime(3);
 
         if (!PlayerPrefs.HasKey("MyData"))
             Init();
@@ -67,6 +70,23 @@ public class AchiveManager : MonoBehaviour
         if (isAchive && PlayerPrefs.GetInt(achive.ToString()) == 0)
         {
             PlayerPrefs.SetInt(achive.ToString(), 1);
+
+            for (int i = 0; i < uiNotice.transform.childCount; i++)
+            {
+                bool isActive = i == (int)achive;
+                uiNotice.transform.GetChild(i).gameObject.SetActive(isActive);
+            }
+            
+            StartCoroutine(NoticeRoutine());
         }
+    }
+
+    private IEnumerator NoticeRoutine()
+    {
+        uiNotice.SetActive(true);
+        
+        yield return _wait;
+        
+        uiNotice.SetActive(false);
     }
 }
