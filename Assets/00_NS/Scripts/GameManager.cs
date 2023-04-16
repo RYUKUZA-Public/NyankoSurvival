@@ -43,7 +43,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LevelUpPop levelUpPop;
     public LevelUpPop LevelUpPop => levelUpPop;
 
-    [SerializeField] private GameObject uiResult;
+    [SerializeField] private Result uiResult;
+
+    [SerializeField] private GameObject enemyCleaner; 
 
     private void Awake()
     {
@@ -56,13 +58,27 @@ public class GameManager : MonoBehaviour
         
         //TODO. Test
         levelUpPop.Select(0);
-        isLive = true;
+        TimeResume();
     }
 
     public void GameRetry()
     {
         SceneManager.LoadScene(0);
-        TimeResume();
+    }
+    
+    public void GameVictory()
+    {
+        StartCoroutine(GameVictoryRoutine());
+    }
+
+    private IEnumerator GameVictoryRoutine()
+    {
+        isLive = false;
+        enemyCleaner.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        uiResult.gameObject.SetActive(true);
+        uiResult.Win();
+        TimeStop();
     }
 
     public void GameOver()
@@ -74,7 +90,8 @@ public class GameManager : MonoBehaviour
     {
         isLive = false;
         yield return new WaitForSeconds(0.5f);
-        uiResult.SetActive(true);
+        uiResult.gameObject.SetActive(true);
+        uiResult.Lose();
         TimeStop();
     }
 
@@ -86,11 +103,17 @@ public class GameManager : MonoBehaviour
         _gameTime += Time.deltaTime;
 
         if (_gameTime > _maxGameTime)
+        {
             _gameTime = _maxGameTime;
+            GameVictory();
+        }
     }
 
     public void GetExp()
     {
+        if (!isLive)
+            return;
+        
         exp++;
 
         if (exp == nextExp[Mathf.Min(level, nextExp.Length - 1)])
