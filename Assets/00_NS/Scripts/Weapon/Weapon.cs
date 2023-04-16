@@ -18,18 +18,18 @@ public class Weapon : MonoBehaviour
     public float Speed { get { return speed; } set { speed = value; } }
 
     private float _timer;
-    private Player _player;
+    private PlayerController _playerController;
 
     private void Awake()
     {
-        _player = GameManager.Instance.Player;
+        _playerController = GameManager.Instance.PlayerController;
     }
     
     public void Init(ItemData data)
     {
         // Basic
         name = $"Weapon {data.itemId}";
-        transform.parent = _player.transform;
+        transform.parent = _playerController.transform;
         transform.localPosition = Vector3.zero;
         
         // property
@@ -50,21 +50,21 @@ public class Weapon : MonoBehaviour
         switch (id)
         {
             case 0:
-                speed = 150 * Character.WqaponSpeed;
+                speed = 150 * CharacterSpecialAbility.WqaponSpeed;
                 Place();
                 break;
             default:
-                speed = 0.4f * Character.WqaponRate;
+                speed = 0.4f * CharacterSpecialAbility.WqaponRate;
                 break;
         }
         
         // Hand
-        Hand hand = _player.hands[(int)data.itemType];
+        WeaponFlipper weaponFlipper = _playerController.hands[(int)data.itemType];
 
-        hand.sprite.sprite = data.hand;
-        hand.gameObject.SetActive(true);
+        weaponFlipper.sprite.sprite = data.hand;
+        weaponFlipper.gameObject.SetActive(true);
         
-        _player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
+        _playerController.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
 
     private void Update()
@@ -103,7 +103,7 @@ public class Weapon : MonoBehaviour
         if (id == 0)
             Place();
         
-        _player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
+        _playerController.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
 
     
@@ -131,16 +131,16 @@ public class Weapon : MonoBehaviour
             bullet.Translate(bullet.up * 1.5f, Space.World);
             
             // 近接は、無限に貫通すりので、-100 (Per)
-            bullet.GetComponent<Bullet>().Init(damage, -100, Vector3.zero);
+            bullet.GetComponent<BulletController>().Init(damage, -100, Vector3.zero);
         }   
     }
 
     private void Fire()
     {
-        if (!_player.Scan.NearestTarget)
+        if (!_playerController.Scan.NearestTarget)
             return;
 
-        Vector3 targetPos = _player.Scan.NearestTarget.position;
+        Vector3 targetPos = _playerController.Scan.NearestTarget.position;
         Vector3 dir = targetPos - transform.position;
         dir = dir.normalized;
         
@@ -150,7 +150,7 @@ public class Weapon : MonoBehaviour
         bullet.position = transform.position;
         bullet.rotation = Quaternion.FromToRotation(Vector3.up, dir);
         
-        bullet.GetComponent<Bullet>().Init(damage, count, dir);
+        bullet.GetComponent<BulletController>().Init(damage, count, dir);
         
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.Range);
     }

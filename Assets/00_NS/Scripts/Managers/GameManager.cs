@@ -38,8 +38,8 @@ public class GameManager : MonoBehaviour
     public int PlayerId { get; set; }
     
     [Header("[ Game Object ]")]
-    [SerializeField] private Player player;
-    public Player Player => player;
+    [SerializeField] private PlayerController playerController;
+    public PlayerController PlayerController => playerController;
     [SerializeField] private PoolManager pool;
     public PoolManager Pool => pool;
     [SerializeField] private LevelUpPop levelUpPop;
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
         PlayerId = id;
         hp = maxHp;
         
-        player.gameObject.SetActive(true);
+        playerController.gameObject.SetActive(true);
         levelUpPop.Select(PlayerId % 2);
         TimeResume();
         
@@ -144,7 +144,7 @@ public class GameManager : MonoBehaviour
     public void TimeStop()
     {
         isLive = false;
-        player.InitTimeStopPlayer();
+        playerController.InitTimeStopPlayer();
         Time.timeScale = 0f;
     }
     

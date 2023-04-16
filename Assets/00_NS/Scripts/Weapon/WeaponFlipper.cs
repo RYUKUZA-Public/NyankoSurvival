@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Hand : MonoBehaviour
+public class WeaponFlipper : MonoBehaviour
 {
     public SpriteRenderer sprite;
     private SpriteRenderer _player;

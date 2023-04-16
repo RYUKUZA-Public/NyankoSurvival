@@ -1,14 +1,9 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class BulletController : MonoBehaviour
 {
-    [SerializeField]
-    private float damage;
-    public float Damage => damage;
-    [SerializeField]
-    private int per;
-    public int Per => per;
-
+    public float Damage { get; private set; }
+    private int _per;
     private Rigidbody2D _rigid;
 
     private void Awake()
@@ -18,8 +13,8 @@ public class Bullet : MonoBehaviour
 
     public void Init(float damage, int per, Vector3 dir)
     {
-        this.damage = damage;
-        this.per = per;
+        Damage = damage;
+        this._per = per;
 
         if (per >= 0)
             _rigid.velocity = dir * 15f;
@@ -27,12 +22,12 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (!col.CompareTag("Enemy") || per == -100)
+        if (!col.CompareTag("Enemy") || _per == -100)
             return;
 
-        per--;
+        _per--;
 
-        if (per < 0)
+        if (_per < 0)
         {
             _rigid.velocity = Vector2.zero;
             gameObject.SetActive(false);
@@ -44,7 +39,7 @@ public class Bullet : MonoBehaviour
     /// </summary>
     private void OnTriggerExit2D(Collider2D col)
     {
-        if (!col.CompareTag("Area") || per == -100)
+        if (!col.CompareTag("Area") || _per == -100)
             return;
         
         gameObject.SetActive(false);

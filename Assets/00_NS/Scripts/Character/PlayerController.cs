@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     /// <summary>
     /// Player入力ベクトル
@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public Vector2 InputVec => inputVec;
     public EnemyScan Scan { get; set; }
 
-    public Hand[] hands;
+    public WeaponFlipper[] hands;
 
     public RuntimeAnimatorController[] animeCon;
     
@@ -43,12 +43,12 @@ public class Player : MonoBehaviour
         _sprite = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
         Scan = GetComponent<EnemyScan>();
-        hands = GetComponentsInChildren<Hand>(true);
+        hands = GetComponentsInChildren<WeaponFlipper>(true);
     }
 
     private void OnEnable()
     {
-        speed *= Character.Speed;
+        speed *= CharacterSpecialAbility.Speed;
         _animator.runtimeAnimatorController = animeCon[GameManager.Instance.PlayerId];
     }
 

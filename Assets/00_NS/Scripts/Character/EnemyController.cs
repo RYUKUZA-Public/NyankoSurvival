@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     /// <summary>
     /// Enemy 移動速度
@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
     private void OnEnable()
     {
         // 活性時に、Target(Player)登録
-        target = GameManager.Instance.Player.GetComponent<Rigidbody2D>();
+        target = GameManager.Instance.PlayerController.GetComponent<Rigidbody2D>();
         _isLive = true;
         hp = maxHp;
         
@@ -95,7 +95,7 @@ public class Enemy : MonoBehaviour
         if (!col.CompareTag("Bullet") || !_isLive)
             return;
 
-        hp -= col.GetComponent<Bullet>().Damage;
+        hp -= col.GetComponent<BulletController>().Damage;
         StartCoroutine(KnockBack());
 
         // Hit
@@ -121,7 +121,7 @@ public class Enemy : MonoBehaviour
     private IEnumerator KnockBack()
     {
         yield return _wait;
-        Vector3 playerPos = GameManager.Instance.Player.transform.position;
+        Vector3 playerPos = GameManager.Instance.PlayerController.transform.position;
         Vector3 dirVec = transform.position - playerPos;
         _rigid.AddForce(dirVec.normalized * 3, ForceMode2D.Impulse);
     }

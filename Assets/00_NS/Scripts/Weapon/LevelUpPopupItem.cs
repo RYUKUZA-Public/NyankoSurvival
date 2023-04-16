@@ -1,14 +1,13 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 using static System.String;
 
-public class Item : MonoBehaviour
+public class LevelUpPopupItem : MonoBehaviour
 {
     public ItemData data;
     public int level;
     public Weapon weapon;
-    public Gear gear;
+    public GearUpgrader gearUpgrader;
 
 
     public Image icon;
@@ -40,8 +39,8 @@ public class Item : MonoBehaviour
             case ItemData.ItemType.Range:
                 descText.text = Format(data.itemDesc, data.damages[level] * 100, data.counts[level]);
                 break;
-            case ItemData.ItemType.Glove:
-            case ItemData.ItemType.Shoe:
+            case ItemData.ItemType.AtkSpeed:
+            case ItemData.ItemType.MoveSpeed:
                 descText.text = Format(data.itemDesc, data.damages[level] * 100);
                 break;
             default:
@@ -74,18 +73,18 @@ public class Item : MonoBehaviour
                 }
                 level++;
                 break;
-            case ItemData.ItemType.Glove:
-            case ItemData.ItemType.Shoe:
+            case ItemData.ItemType.AtkSpeed:
+            case ItemData.ItemType.MoveSpeed:
                 if (level == 0)
                 {
                     GameObject newGear = new GameObject();
-                    gear = newGear.AddComponent<Gear>();
-                    gear.Init(data);
+                    gearUpgrader = newGear.AddComponent<GearUpgrader>();
+                    gearUpgrader.Init(data);
                 }
                 else
                 {
                     float nextRate = data.damages[level];
-                    gear.GearLevelUp(nextRate);
+                    gearUpgrader.GearLevelUp(nextRate);
                 }
                 level++;
                 break;

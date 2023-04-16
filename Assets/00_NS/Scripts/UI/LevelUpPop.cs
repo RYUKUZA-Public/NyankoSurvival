@@ -3,12 +3,12 @@ using UnityEngine;
 public class LevelUpPop : MonoBehaviour
 {
     private RectTransform _rect;
-    private Item[] _items;
+    private LevelUpPopupItem[] _items;
 
     private void Awake()
     {
         _rect = GetComponent<RectTransform>();
-        _items = GetComponentsInChildren<Item>(true);
+        _items = GetComponentsInChildren<LevelUpPopupItem>(true);
     }
 
     public void Show()
@@ -34,7 +34,7 @@ public class LevelUpPop : MonoBehaviour
     private void GetRandomitems()
     {
         // すべてのアイテムを非活性
-        foreach (Item item in _items)
+        foreach (LevelUpPopupItem item in _items)
             item.gameObject.SetActive(false);
         
         // ランダムアイテム3つ抽選
@@ -51,13 +51,13 @@ public class LevelUpPop : MonoBehaviour
 
         for (int i = 0; i < ran.Length; i++)
         {
-            Item ranItem = _items[ran[i]];
+            LevelUpPopupItem ranLevelUpPopupItem = _items[ran[i]];
 
             // Maxレベルの場合は消費アイテムで対処
-            if (ranItem.level == ranItem.data.damages.Length)
+            if (ranLevelUpPopupItem.level == ranLevelUpPopupItem.data.damages.Length)
                 _items[4].gameObject.SetActive(true);
             else
-                ranItem.gameObject.SetActive(true);
+                ranLevelUpPopupItem.gameObject.SetActive(true);
         }
 
     }

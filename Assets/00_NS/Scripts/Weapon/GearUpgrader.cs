@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Gear : MonoBehaviour
+public class GearUpgrader : MonoBehaviour
 {
     public ItemData.ItemType type;
     public float rate;
@@ -10,7 +10,7 @@ public class Gear : MonoBehaviour
         // Basic
 
         name = $"Gear {data.itemId}";
-        transform.parent = GameManager.Instance.Player.transform;
+        transform.parent = GameManager.Instance.PlayerController.transform;
         transform.localPosition = Vector3.zero;
 
         // property
@@ -29,10 +29,10 @@ public class Gear : MonoBehaviour
     {
         switch (type)
         {
-            case ItemData.ItemType.Glove:
+            case ItemData.ItemType.AtkSpeed:
                 RateUp();
                 break;
-            case ItemData.ItemType.Shoe:
+            case ItemData.ItemType.MoveSpeed:
                 MoveSpeedUp();
                 break;
         }
@@ -47,11 +47,11 @@ public class Gear : MonoBehaviour
             switch (weapon.Id)
             {
                 case 0:
-                    float speed = 150 * Character.WqaponSpeed;
+                    float speed = 150 * CharacterSpecialAbility.WqaponSpeed;
                     weapon.Speed = speed + (150 * rate);
                     break;
                 default:
-                    speed = 0.5f * Character.WqaponRate;
+                    speed = 0.5f * CharacterSpecialAbility.WqaponRate;
                     weapon.Speed = speed * (1f - rate);
                     break;
             }
@@ -60,7 +60,7 @@ public class Gear : MonoBehaviour
 
     private void MoveSpeedUp()
     {
-        float speed = 3 * Character.Speed;
-        GameManager.Instance.Player.Speed = speed + (speed * rate);
+        float speed = 3 * CharacterSpecialAbility.Speed;
+        GameManager.Instance.PlayerController.Speed = speed + (speed * rate);
     }
 }

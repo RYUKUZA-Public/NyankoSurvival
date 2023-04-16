@@ -11,7 +11,7 @@ public class SpawnData
 /// <summary>
 /// TODO. TEST
 /// </summary>
-public class Spawner : MonoBehaviour
+public class SpawnController : MonoBehaviour
 {
 
     [SerializeField]
@@ -50,6 +50,6 @@ public class Spawner : MonoBehaviour
         // TODO.
         GameObject enemy = GameManager.Instance.Pool.Get(PoolType.Monster, _level);
         enemy.transform.position = _spawnPoint[Random.Range(1, _spawnPoint.Length)].position;
-        enemy.GetComponent<Enemy>().Init(spawnData[_level]);
+        enemy.GetComponent<EnemyController>().Init(spawnData[_level]);
     }
 }

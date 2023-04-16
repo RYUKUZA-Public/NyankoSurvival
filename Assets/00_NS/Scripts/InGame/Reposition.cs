@@ -14,7 +14,7 @@ public class Reposition : MonoBehaviour
     private void Start()
     {
         // Playerのtransform取得
-        playerTransform = GameManager.Instance.Player.transform;
+        playerTransform = GameManager.Instance.PlayerController.transform;
     }
 
     private void OnTriggerExit2D(Collider2D col)

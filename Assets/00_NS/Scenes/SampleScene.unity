@@ -5269,7 +5269,7 @@ Transform:
   - {fileID: 1298294834}
   - {fileID: 1116121422}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &264678230
 Rigidbody2D:
@@ -10347,7 +10347,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -10465,7 +10465,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: e48a23b9bf35de94e8090ef181462e74, type: 2}
   level: 0
   weapon: {fileID: 0}
-  gear: {fileID: 0}
+  gearUpgrader: {fileID: 0}
   icon: {fileID: 0}
   levelText: {fileID: 0}
 --- !u!114 &532689097
@@ -10809,7 +10809,7 @@ Transform:
   - {fileID: 1534631920}
   - {fileID: 321393508}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &668310068
 GameObject:
@@ -10942,12 +10942,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 686310525}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1126955994}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &686310527
@@ -10971,7 +10971,7 @@ MonoBehaviour:
   kill: 0
   exp: 0
   nextExp: 03000000050000000a0000006400000096000000d20000001801000068010000c201000058020000
-  player: {fileID: 264678233}
+  playerController: {fileID: 264678233}
   pool: {fileID: 1403581677}
   levelUpPop: {fileID: 957841563}
   uiResult: {fileID: 1495580372}
@@ -11000,12 +11000,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741412993}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1126955994}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &741412995
@@ -11084,7 +11084,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 37420765d2d0a1842aa59cdb2e36bbc7, type: 2}
   level: 0
   weapon: {fileID: 0}
-  gear: {fileID: 0}
+  gearUpgrader: {fileID: 0}
   icon: {fileID: 0}
   levelText: {fileID: 0}
 --- !u!114 &743019019
@@ -12149,7 +12149,7 @@ Transform:
   m_Children:
   - {fileID: 1819652624}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1058572102
 GameObject:
@@ -12437,6 +12437,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1124358964}
   m_CullTransparentMesh: 1
+--- !u!1 &1126955993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1126955994}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1126955994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126955993}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 686310526}
+  - {fileID: 1403581676}
+  - {fileID: 741412994}
+  - {fileID: 1395656926}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1160522822
 GameObject:
   m_ObjectHideFlags: 0
@@ -12840,7 +12875,7 @@ RectTransform:
   - {fileID: 1495580371}
   - {fileID: 1920657045}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -13110,7 +13145,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 2f286d9fe9edbe946a2f20d8aa0dbe00, type: 2}
   level: 0
   weapon: {fileID: 0}
-  gear: {fileID: 0}
+  gearUpgrader: {fileID: 0}
   icon: {fileID: 0}
   levelText: {fileID: 0}
 --- !u!1 &1318958766
@@ -13501,12 +13536,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395656925}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1126955994}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1395656927
@@ -13562,12 +13597,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1403581675}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1126955994}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1403581677
@@ -22877,7 +22912,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1627201780
 BoxCollider2D:
@@ -22917,8 +22952,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58d2c12a641cc14c826d3ef560fed60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1000000
-  per: -100
 --- !u!1 &1628423985
 GameObject:
   m_ObjectHideFlags: 0
@@ -23613,7 +23646,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: b3a46dbf23be8b644898da8fe5a40c6a, type: 2}
   level: 0
   weapon: {fileID: 0}
-  gear: {fileID: 0}
+  gearUpgrader: {fileID: 0}
   icon: {fileID: 0}
   levelText: {fileID: 0}
 --- !u!114 &1726580646
@@ -24208,7 +24241,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1920657044
 GameObject:
@@ -25064,7 +25097,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 16a26785ed0600c408db159f64a41457, type: 2}
   level: 0
   weapon: {fileID: 0}
-  gear: {fileID: 0}
+  gearUpgrader: {fileID: 0}
   icon: {fileID: 0}
   levelText: {fileID: 0}
 --- !u!114 &2060161224
