@@ -17,6 +17,7 @@ public class PoolManager : MonoBehaviour
 
     [SerializeField]
     private GameObject[] weaponPrefabs;
+    public GameObject[] WeaponPrefabs => weaponPrefabs;
     
     /// <summary>
     /// Poolリスト

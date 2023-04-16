@@ -16,14 +16,32 @@ public class Weapon : MonoBehaviour
     private float _timer;
     private Player _player;
 
-    private void Start()
-    {
-        Init();
-    }
-    
-    public void Init()
+    private void Awake()
     {
         _player = GameManager.Instance.Player;
+    }
+    
+    public void Init(ItemData data)
+    {
+        // Basic
+        name = $"Weapon {data.itemId}";
+        transform.parent = _player.transform;
+        transform.localPosition = Vector3.zero;
+        
+        // property
+        id = data.itemId;
+        damage = data.baseDamage;
+        count = data.baseCount;
+
+        for (int i = 0; i < GameManager.Instance.Pool.WeaponPrefabs.Length; i++)
+        {
+            if (data.projectile == GameManager.Instance.Pool.WeaponPrefabs[i])
+            {
+                prefabId = i;
+                break;
+            }
+        }
+        
         
         switch (id)
         {
