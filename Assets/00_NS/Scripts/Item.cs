@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -49,7 +48,7 @@ public class Item : MonoBehaviour
                     
                     weapon.WeaponLevelUp(nextDamage, nextCount);
                 }
-                
+                level++;
                 break;
             case ItemData.ItemType.Glove:
             case ItemData.ItemType.Shoe:
@@ -64,14 +63,13 @@ public class Item : MonoBehaviour
                     float nextRate = data.damages[level];
                     gear.GearLevelUp(nextRate);
                 }
+                level++;
                 break;
             case ItemData.ItemType.Heal:
-                
+                GameManager.Instance.Hp = GameManager.Instance.MaxHp;
                 break;
         }
-
-        level++;
-
+        
         if (level == data.damages.Length)
         {
             GetComponent<Button>().interactable = false;

@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int level;
     public int Level => level;
     [SerializeField] private int hp;
-    public int Hp => hp;
+    public int Hp { get => hp; set => hp = value; }
+
     [SerializeField] private int maxHp = 100;
     public int MaxHp => maxHp;
     
