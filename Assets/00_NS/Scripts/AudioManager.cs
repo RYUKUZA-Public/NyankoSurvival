@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -11,13 +10,14 @@ public class AudioManager : MonoBehaviour
     private AudioSource _bgmPlayer;
     
     [Header("[ SFX ]")]
-    [SerializeField] private AudioClip[] sfxClip;
+    [SerializeField] private AudioClip[] sfxClips;
     [SerializeField] private float sfxCVolume;
     [SerializeField] private int channels;
     private AudioSource[] _sfxPlayers;
     private int _channelIndex;
-
-
+    
+    public enum Sfx { Dead, Hit, LevelUp = 3, Lose, Melee, Range = 7, Select, Win }
+    
     private void Awake()
     {
         Instance = this;
@@ -46,19 +46,25 @@ public class AudioManager : MonoBehaviour
             _sfxPlayers[i].playOnAwake = false;
             _sfxPlayers[i].volume = sfxCVolume;
         }
+    }
 
+    public void PlaySfx(Sfx sfx)
+    {
+        for (int i = 0; i < _sfxPlayers.Length; i++)
+        {
+            int loopIndex = (i + _channelIndex) % _sfxPlayers.Length;
 
+            if (_sfxPlayers[loopIndex].isPlaying)
+                continue;
 
-
-
-
-
-
-
-
-
-
-
-
+            int ranIndex = 0;
+            if (sfx == Sfx.Hit || sfx == Sfx.Melee)
+                ranIndex = Random.Range(0, 2);
+            
+            _channelIndex = loopIndex;
+            _sfxPlayers[loopIndex].clip = sfxClips[(int)sfx + ranIndex];
+            _sfxPlayers[loopIndex].Play();
+            break;
+        }
     }
 }

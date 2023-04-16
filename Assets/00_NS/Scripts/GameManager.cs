@@ -63,6 +63,8 @@ public class GameManager : MonoBehaviour
         player.gameObject.SetActive(true);
         levelUpPop.Select(PlayerId % 2);
         TimeResume();
+        
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.Select);
     }
 
     public void GameRetry()
@@ -83,6 +85,8 @@ public class GameManager : MonoBehaviour
         uiResult.gameObject.SetActive(true);
         uiResult.Win();
         TimeStop();
+        
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.Win);
     }
 
     public void GameOver()
@@ -97,6 +101,8 @@ public class GameManager : MonoBehaviour
         uiResult.gameObject.SetActive(true);
         uiResult.Lose();
         TimeStop();
+        
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.Lose);
     }
 
     private void Update()

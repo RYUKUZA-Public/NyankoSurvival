@@ -16,12 +16,14 @@ public class LevelUpPop : MonoBehaviour
         GetRandomitems();
         _rect.localScale = Vector3.one;
         GameManager.Instance.TimeStop();
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.LevelUp);
     }
 
     public void Hide()
     {
         _rect.localScale = Vector3.zero;
         GameManager.Instance.TimeResume();
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.Select);
     }
 
     public void Select(int index)

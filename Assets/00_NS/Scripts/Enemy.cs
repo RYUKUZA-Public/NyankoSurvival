@@ -102,6 +102,7 @@ public class Enemy : MonoBehaviour
         if (hp > 0)
         {
             _animator.SetTrigger("Hit");
+            AudioManager.Instance.PlaySfx(AudioManager.Sfx.Hit);
         }
         else
         {
@@ -112,8 +113,9 @@ public class Enemy : MonoBehaviour
             _animator.SetBool("Dead", true);
             GameManager.Instance.Kill++;
             GameManager.Instance.GetExp();
+            if (GameManager.Instance.IsLive)
+                AudioManager.Instance.PlaySfx(AudioManager.Sfx.Dead);
         }
-        
     }
 
     private IEnumerator KnockBack()
