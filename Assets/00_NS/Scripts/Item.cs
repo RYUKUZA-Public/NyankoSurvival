@@ -47,10 +47,7 @@ public class Item : MonoBehaviour
             default:
                 descText.text = Format(data.itemDesc);
                 break;
-            
         }
-
-        
     }
     
     public void OnClick()

@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
     public Player Player => player;
     [SerializeField] private PoolManager pool;
     public PoolManager Pool => pool;
+    [SerializeField] private LevelUpPop levelUpPop;
+    public LevelUpPop LevelUpPop => levelUpPop;
 
     private void Awake()
     {
@@ -62,6 +64,7 @@ public class GameManager : MonoBehaviour
         {
             level++;
             exp = 0;
+            levelUpPop.Show();
         }
     }
 }
