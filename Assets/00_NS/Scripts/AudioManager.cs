@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
     
     [Header("[ BGM ]")]
-    [SerializeField] private AudioClip bgmClip;
+    [SerializeField] private AudioClip[] bgmClips;
     [SerializeField] private float bgmVolume;
     private AudioSource _bgmPlayer;
     
@@ -16,6 +17,7 @@ public class AudioManager : MonoBehaviour
     private AudioSource[] _sfxPlayers;
     private int _channelIndex;
     
+    public enum Bgm { Title, Battle }
     public enum Sfx { Dead, Hit, LevelUp = 3, Lose, Melee, Range = 7, Select, Win }
     
     private void Awake()
@@ -33,7 +35,6 @@ public class AudioManager : MonoBehaviour
         _bgmPlayer.playOnAwake = false;
         _bgmPlayer.loop = true;
         _bgmPlayer.volume = bgmVolume;
-        _bgmPlayer.clip = bgmClip;
         
         // SFX
         GameObject sfxObject = new GameObject("SfxPlayer");
@@ -47,6 +48,15 @@ public class AudioManager : MonoBehaviour
             _sfxPlayers[i].volume = sfxCVolume;
         }
     }
+
+    public void PlayBgm(Bgm bgm)
+    {
+        var clip = bgmClips[(int)bgm];
+        _bgmPlayer.clip = clip;
+        _bgmPlayer.Play();
+    }
+
+    public void StopBgm() => _bgmPlayer.Stop();
 
     public void PlaySfx(Sfx sfx)
     {

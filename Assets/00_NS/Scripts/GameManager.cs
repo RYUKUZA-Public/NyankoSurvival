@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -55,6 +56,11 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        AudioManager.Instance.PlayBgm(AudioManager.Bgm.Title);
+    }
+
     public void GameStart(int id)
     {
         PlayerId = id;
@@ -64,6 +70,7 @@ public class GameManager : MonoBehaviour
         levelUpPop.Select(PlayerId % 2);
         TimeResume();
         
+        AudioManager.Instance.PlayBgm(AudioManager.Bgm.Battle);
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.Select);
     }
 
@@ -87,6 +94,7 @@ public class GameManager : MonoBehaviour
         TimeStop();
         
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.Win);
+        AudioManager.Instance.StopBgm();
     }
 
     public void GameOver()
@@ -103,6 +111,7 @@ public class GameManager : MonoBehaviour
         TimeStop();
         
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.Lose);
+        AudioManager.Instance.StopBgm();
     }
 
     private void Update()
