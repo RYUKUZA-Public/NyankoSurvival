@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     public EnemyScan Scan { get; set; }
 
     public Hand[] hands;
+
+    public RuntimeAnimatorController[] animeCon;
     
     
     /// <summary>
@@ -43,6 +45,12 @@ public class Player : MonoBehaviour
         _animator = GetComponent<Animator>();
         Scan = GetComponent<EnemyScan>();
         hands = GetComponentsInChildren<Hand>(true);
+    }
+
+    private void OnEnable()
+    {
+        speed *= Character.Speed;
+        _animator.runtimeAnimatorController = animeCon[GameManager.Instance.PlayerId];
     }
 
     private void FixedUpdate()

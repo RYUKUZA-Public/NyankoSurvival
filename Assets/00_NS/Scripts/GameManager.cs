@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public float GameTime => _gameTime;
     [SerializeField] private float _maxGameTime = 3 * 10f;
     public float MaxGameTime => _maxGameTime;
+
+    
     
     [Header("[ Player Info ]")]
     [SerializeField] private int level;
@@ -29,11 +31,12 @@ public class GameManager : MonoBehaviour
     public int Kill { get { return kill; } set { kill = value; } }
 
     [SerializeField] private int exp;
-
     public int Exp => exp;
     // TODO.
     [SerializeField] private int[] nextExp = { 10, 30, 60, 100, 150, 210, 280, 360, 450, 600 };
     public int[] NextExp => nextExp;
+    
+    public int PlayerId { get; set; }
     
     [Header("[ Game Object ]")]
     [SerializeField] private Player player;
@@ -52,12 +55,13 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
-    public void GameStart()
+    public void GameStart(int id)
     {
+        PlayerId = id;
         hp = maxHp;
         
-        //TODO. Test
-        levelUpPop.Select(0);
+        player.gameObject.SetActive(true);
+        levelUpPop.Select(PlayerId % 2);
         TimeResume();
     }
 

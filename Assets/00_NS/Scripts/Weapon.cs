@@ -50,11 +50,11 @@ public class Weapon : MonoBehaviour
         switch (id)
         {
             case 0:
-                speed = 150;
+                speed = 150 * Character.WqaponSpeed;
                 Place();
                 break;
             default:
-                speed = 0.4f;
+                speed = 0.4f * Character.WqaponRate;
                 break;
         }
         
