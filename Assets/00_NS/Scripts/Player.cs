@@ -53,6 +53,16 @@ public class Player : MonoBehaviour
         _animator.runtimeAnimatorController = animeCon[GameManager.Instance.PlayerId];
     }
 
+    public void InitTimeStopPlayer()
+    {
+        // Time.timeScaleが0の場合、FixedUpdate関数が実行されないため、ここで停止する
+        if (!GameManager.Instance.IsLive)
+        {
+            inputVec = Vector2.zero;
+            _rigid.velocity = Vector2.zero;
+        }
+    }
+
     private void FixedUpdate()
     {
         if (!GameManager.Instance.IsLive)
