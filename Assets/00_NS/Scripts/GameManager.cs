@@ -46,12 +46,13 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
+    public void GameStart()
     {
         hp = maxHp;
         
         //TODO. Test
         levelUpPop.Select(0);
+        isLive = true;
     }
 
     private void Update()
