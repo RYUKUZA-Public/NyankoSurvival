@@ -16,7 +16,7 @@ MonoBehaviour:
   itemId: 0
   itemName: TEST NAME
   itemDesc: TEST DESC
-  itemIcon: {fileID: 21300000, guid: 21482307f640659468b6f89aab042898, type: 3}
+  itemIcon: {fileID: 21300000, guid: 79ea65361041d6d4bbab3535d4f62bb4, type: 3}
   baseDamage: 0
   baseCount: 0
   damages:
