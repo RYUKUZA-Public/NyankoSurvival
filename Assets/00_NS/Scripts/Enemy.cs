@@ -62,6 +62,9 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!GameManager.Instance.IsLive)
+            return;
+        
         if (!_isLive || _animator.GetCurrentAnimatorStateInfo(0).IsName("Hit"))
             return;
 
@@ -77,6 +80,9 @@ public class Enemy : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (!GameManager.Instance.IsLive)
+            return;
+        
         if (!_isLive)
             return;
         

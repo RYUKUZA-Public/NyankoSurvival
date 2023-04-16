@@ -4,8 +4,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    
+
     [Header("[ Game Control ]")]
+    [SerializeField]
+    private bool isLive;
+    public bool IsLive => isLive;
     [SerializeField] private float _gameTime;
     public float GameTime => _gameTime;
     [SerializeField] private float _maxGameTime = 3 * 10f;
@@ -53,6 +56,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (!isLive)
+            return;
+        
         _gameTime += Time.deltaTime;
 
         if (_gameTime > _maxGameTime)
@@ -69,5 +75,17 @@ public class GameManager : MonoBehaviour
             exp = 0;
             levelUpPop.Show();
         }
+    }
+
+    public void TimeStop()
+    {
+        isLive = false;
+        Time.timeScale = 0f;
+    }
+    
+    public void TimeResume()
+    {
+        isLive = true;
+        Time.timeScale = 1f;
     }
 }

@@ -47,6 +47,9 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!GameManager.Instance.IsLive)
+            return;
+        
         // 入力ベクトルと速度を利用して、Playerの次の位置ベクトル計算
         Vector2 nextVec = inputVec * (speed * Time.fixedDeltaTime);
         // Rigidbody2Dを利用してプレイヤー移動
@@ -55,6 +58,9 @@ public class Player : MonoBehaviour
     
     private void LateUpdate()
     {
+        if (!GameManager.Instance.IsLive)
+            return;
+        
         // Speedを利用して、Player Idle <-> Move アニメ変更
         _animator.SetFloat("Speed", inputVec.magnitude);
         
@@ -68,6 +74,9 @@ public class Player : MonoBehaviour
     /// </summary>
     private void OnMove(InputValue value)
     {
+        if (!GameManager.Instance.IsLive)
+            return;
+        
         // 入力値をVector2形式に、変換して入力ベクトルに保存
         inputVec = value.Get<Vector2>();
     }

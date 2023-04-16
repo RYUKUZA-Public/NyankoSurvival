@@ -10519,6 +10519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5947655cce32a154081bfff1e1831478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLive: 1
   _gameTime: 0
   _maxGameTime: 30
   level: 0

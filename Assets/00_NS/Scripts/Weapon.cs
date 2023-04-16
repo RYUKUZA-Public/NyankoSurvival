@@ -69,6 +69,9 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
+        if (!GameManager.Instance.IsLive)
+            return;
+        
         switch (id)
         {
             case 0:

@@ -14,11 +14,13 @@ public class LevelUpPop : MonoBehaviour
     public void Show()
     {
         _rect.localScale = Vector3.one;
+        GameManager.Instance.TimeStop();
     }
 
     public void Hide()
     {
         _rect.localScale = Vector3.zero;
+        GameManager.Instance.TimeResume();
     }
 
     public void Select(int index)
