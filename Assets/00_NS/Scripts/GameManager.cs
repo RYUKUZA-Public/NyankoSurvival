@@ -46,6 +46,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         hp = maxHp;
+        
+        //TODO. Test
+        levelUpPop.Select(0);
     }
 
     private void Update()
