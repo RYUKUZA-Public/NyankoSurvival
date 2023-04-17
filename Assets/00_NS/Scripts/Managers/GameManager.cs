@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -47,10 +48,20 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Result uiResult;
 
-    [SerializeField] private GameObject enemyCleaner; 
+    [SerializeField] private GameObject enemyCleaner;
+
+    [Header("[ Test ]")] [SerializeField] private Text fpsText;
+
+    private void FPSTEST()
+    {
+        float fps = 1 / Time.unscaledDeltaTime;
+        fpsText.text = fps.ToString("F0");
+    }
 
     private void Awake()
     {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 30;
         Instance = this;
     }
 
@@ -114,6 +125,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        // TODO.
+        FPSTEST();
+        
         if (!isLive)
             return;
         
