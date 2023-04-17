@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class AchiveManager : MonoBehaviour
+public class AchiveManager : NewMonoBehaviour
 {
     [SerializeField] private GameObject[] lockCharacter;
     [SerializeField] private GameObject[] unlockCharacter;
@@ -48,7 +48,7 @@ public class AchiveManager : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
+    public override void NewLateUpdate()
     {
         foreach (Achive achive in _achives)
         {

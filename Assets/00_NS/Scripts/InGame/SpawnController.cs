@@ -11,7 +11,7 @@ public class SpawnData
 /// <summary>
 /// TODO. TEST
 /// </summary>
-public class SpawnController : MonoBehaviour
+public class SpawnController : NewMonoBehaviour
 {
 
     [SerializeField]
@@ -30,7 +30,7 @@ public class SpawnController : MonoBehaviour
         _levelTime = GameManager.Instance.MaxGameTime / spawnData.Length;
     }
 
-    private void Update()
+    public override void NewUpdate()
     {
         if (!GameManager.Instance.IsLive)
             return;

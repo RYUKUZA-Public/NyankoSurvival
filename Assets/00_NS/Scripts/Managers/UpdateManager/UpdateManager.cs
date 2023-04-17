@@ -1,8 +1,9 @@
 using System;
+using UnityEngine;
 
 public class UpdateManager : SingletonBehaviour<UpdateManager>
 {
-    protected override bool DoNotDestroyOnLoad { get { return false; } }
+    protected override bool DoNotDestroyOnLoad { get { return true; } }
 
     /// <summary>
     /// Updateたちのイベント宣言

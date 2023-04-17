@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WeaponFlipper : MonoBehaviour
+public class WeaponFlipper : NewMonoBehaviour
 {
     public SpriteRenderer sprite;
     private SpriteRenderer _player;
@@ -8,15 +8,16 @@ public class WeaponFlipper : MonoBehaviour
     private Vector3 _localPos;
     private Quaternion _localRot;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         _player = transform.parent.GetComponent<SpriteRenderer>();
         _localPos = transform.localPosition;
         _localRot = transform.localRotation;
         UpdateHand();
     }
     
-    private void LateUpdate()
+    public override void NewLateUpdate()
     {
         UpdateHand();
     }

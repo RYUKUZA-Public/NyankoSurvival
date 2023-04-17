@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : NewMonoBehaviour
 {
     /// <summary>
     /// Enemy 移動速度
@@ -39,8 +39,10 @@ public class EnemyController : MonoBehaviour
         _wait = new WaitForFixedUpdate();
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
+        
         // 活性時に、Target(Player)登録
         target = GameManager.Instance.PlayerController.GetComponent<Rigidbody2D>();
         _isLive = true;
@@ -60,7 +62,7 @@ public class EnemyController : MonoBehaviour
         hp = data.Hp;
     }
 
-    private void FixedUpdate()
+    public override void NewFixedUpdate()
     {
         if (!GameManager.Instance.IsLive)
             return;
@@ -78,7 +80,7 @@ public class EnemyController : MonoBehaviour
         _rigid.velocity = Vector2.zero;
     }
 
-    private void LateUpdate()
+    public override void NewLateUpdate()
     {
         if (!GameManager.Instance.IsLive)
             return;
@@ -89,7 +91,7 @@ public class EnemyController : MonoBehaviour
         // Playerが、Enemyより左側にあるときEnemy方向転換
         _sprite.flipX = target.position.x < _rigid.position.x;
     }
-
+    
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (!col.CompareTag("Bullet") || !_isLive)

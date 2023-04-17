@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HUD : MonoBehaviour
+public class HUD : NewMonoBehaviour
 {
     public enum InfoType { Exp, Level, Kill, Time, Hp }
     [SerializeField]
@@ -17,7 +17,7 @@ public class HUD : MonoBehaviour
         mySlider = GetComponent<Slider>();
     }
 
-    private void LateUpdate()
+    public override void NewLateUpdate()
     {
         switch (type)
         {

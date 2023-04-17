@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public class Weapon : NewMonoBehaviour
 {
     [SerializeField]
     private int id;
@@ -67,7 +67,7 @@ public class Weapon : MonoBehaviour
         _playerController.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
 
-    private void Update()
+    public override void NewUpdate()
     {
         if (!GameManager.Instance.IsLive)
             return;

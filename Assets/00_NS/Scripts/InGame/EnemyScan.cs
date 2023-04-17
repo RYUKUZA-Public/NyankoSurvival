@@ -2,14 +2,14 @@ using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class EnemyScan : MonoBehaviour
+public class EnemyScan : NewMonoBehaviour
 {
     [SerializeField] private float scanRange;
     [SerializeField] private LayerMask targetLayer;
     [SerializeField] public Transform NearestTarget { get; set; }
     [SerializeField] private RaycastHit2D[] _targets;
     
-    private void FixedUpdate()
+    public override void NewFixedUpdate()
     {
         _targets = Physics2D.CircleCastAll(
             transform.position,

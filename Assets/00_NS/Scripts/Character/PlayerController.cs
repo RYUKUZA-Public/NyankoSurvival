@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : NewMonoBehaviour
 {
     /// <summary>
     /// Player入力ベクトル
@@ -48,8 +48,9 @@ public class PlayerController : MonoBehaviour
         hands = GetComponentsInChildren<WeaponFlipper>(true);
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         speed *= CharacterSpecialAbility.Speed;
         _animator.runtimeAnimatorController = animeCon[GameManager.Instance.PlayerId];
     }
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    public override void NewFixedUpdate()
     {
         if (!GameManager.Instance.IsLive)
             return;
@@ -79,8 +80,8 @@ public class PlayerController : MonoBehaviour
         // Rigidbody2Dを利用してプレイヤー移動
         _rigid.MovePosition(_rigid.position + nextVec);
     }
-    
-    private void LateUpdate()
+
+    public override void NewLateUpdate()
     {
         if (!GameManager.Instance.IsLive)
             return;

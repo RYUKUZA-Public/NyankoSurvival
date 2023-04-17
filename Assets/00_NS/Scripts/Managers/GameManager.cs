@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager : NewMonoBehaviour
 {
     public static GameManager Instance;
 
@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.PlayBgm(AudioManager.Bgm.Battle);
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.Select);
     }
-
+    
     public void GameRetry()
     {
         SceneManager.LoadScene(0);
@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.StopBgm();
     }
 
-    private void Update()
+    public override void NewUpdate()
     {
         // TODO.
         FPSTEST();
