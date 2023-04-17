@@ -1,47 +1,55 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class EnemyScan : NewMonoBehaviour
 {
-    [SerializeField] private float scanRange;
+    /// <summary>
+    /// 探索範囲
+    /// </summary>
+    [SerializeField]
+    private float scanRange;
+    /// <summary>
+    /// 探索するレイヤー
+    /// </summary>
     [SerializeField] private LayerMask targetLayer;
-    [SerializeField] public Transform NearestTarget { get; set; }
-    [SerializeField] private RaycastHit2D[] _targets;
+    /// <summary>
+    /// 一番近い敵
+    /// </summary>
+    public Transform NearestTarget { get; private set; }
+    private Collider2D[] _targets;
     
+    /// <summary>
+    /// UpdateManager
+    /// </summary>
     public override void NewFixedUpdate()
     {
-        _targets = Physics2D.CircleCastAll(
-            transform.position,
-            scanRange, 
-            Vector2.zero, 
-            0, 
-            targetLayer);
-
+        // 円形衝突チェックで敵を探知し、配列に保存
+        _targets = Physics2D.OverlapCircleAll(transform.position, scanRange, targetLayer);
+        // 最寄の対象探し
         NearestTarget = GetNearest();
-
     }
 
+    /// <summary>
+    /// 最寄の対象探し
+    /// </summary>
     private Transform GetNearest()
     {
         Transform result = null;
+        float diff = Mathf.Infinity;
+        Vector3 currentPos = transform.position;
 
-        float diff = 100;
-
-        foreach (RaycastHit2D target in _targets)
+        foreach (Collider2D target in _targets)
         {
-            Vector3 myPos = transform.position;
-            Vector3 targetPos = target.transform.position;
+            // 現在地と敵地の間の距離を求める
+            float currentDiff = Vector3.Distance(currentPos, target.transform.position);
 
-            float curDiff = Vector3.Distance(myPos, targetPos);
-
-            if (curDiff < diff)
+            if (currentDiff < diff)
             {
-                diff = curDiff;
+                // 現在、最も近い敵より近い場合は結果を更新する
+                diff = currentDiff;
                 result = target.transform;
             }
         }
-        
+
         return result;
     }
 }
