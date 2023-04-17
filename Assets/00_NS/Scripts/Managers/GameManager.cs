@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public bool IsLive => isLive;
     [SerializeField] private float _gameTime;
     public float GameTime => _gameTime;
-    [SerializeField] private float _maxGameTime = 3 * 10f;
+    [SerializeField] private float _maxGameTime = 1 * 10f;
     public float MaxGameTime => _maxGameTime;
 
     

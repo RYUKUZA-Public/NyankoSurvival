@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public WeaponFlipper[] hands;
 
     public RuntimeAnimatorController[] animeCon;
+
+    [SerializeField] private VariableJoystick joy;
     
     
     /// <summary>
@@ -66,6 +68,11 @@ public class PlayerController : MonoBehaviour
     {
         if (!GameManager.Instance.IsLive)
             return;
+
+        float x = joy.Horizontal;
+        float y = joy.Vertical;
+
+        inputVec = new Vector2(x, y);
         
         // 入力ベクトルと速度を利用して、Playerの次の位置ベクトル計算
         Vector2 nextVec = inputVec * (speed * Time.fixedDeltaTime);
@@ -89,14 +96,14 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// InputSystemのイベント関数
     /// </summary>
-    private void OnMove(InputValue value)
-    {
-        if (!GameManager.Instance.IsLive)
-            return;
-        
-        // 入力値をVector2形式に、変換して入力ベクトルに保存
-        inputVec = value.Get<Vector2>();
-    }
+    // private void OnMove(InputValue value)
+    // {
+    //     if (!GameManager.Instance.IsLive)
+    //         return;
+    //     
+    //     // 入力値をVector2形式に、変換して入力ベクトルに保存
+    //     inputVec = value.Get<Vector2>();
+    // }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
