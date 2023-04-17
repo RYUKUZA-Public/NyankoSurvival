@@ -5,9 +5,20 @@ public class BulletController : MonoBehaviour
     public float Damage { get; private set; }
     private int _per;
     private Rigidbody2D _rigid;
+    
+    [Header("EnemyCleaner")]
+    [SerializeField]
+    private bool isEnemyCleaner;
+    private bool _cleanerDamage;
 
     private void Awake()
     {
+        if (isEnemyCleaner)
+        {
+            Damage = 1000000f;
+            _per = -100;
+        }
+        
         _rigid = GetComponent<Rigidbody2D>();
     }
 
