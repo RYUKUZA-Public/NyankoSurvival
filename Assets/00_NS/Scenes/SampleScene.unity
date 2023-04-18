@@ -5355,12 +5355,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   addOnEnable: 1
   removeOnDisable: 1
-  inputVec: {x: 0, y: 0}
-  hands: []
+  joy: {fileID: 816078000}
   animeCon:
   - {fileID: 22100000, guid: c38ab4b34a1afa743b8a48b9e4e5fa98, type: 2}
   - {fileID: 22100000, guid: bf4f41ce68cfba744ad99f1f2b531578, type: 2}
-  joy: {fileID: 816078000}
   speed: 3
 --- !u!114 &264678234
 MonoBehaviour:
@@ -10654,12 +10652,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282dcdd7bc243574296f53311aa211fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: e48a23b9bf35de94e8090ef181462e74, type: 2}
-  level: 0
+  itemData: {fileID: 11400000, guid: e48a23b9bf35de94e8090ef181462e74, type: 2}
+  itemLevel: 0
   weapon: {fileID: 0}
   gearUpgrader: {fileID: 0}
-  icon: {fileID: 0}
-  levelText: {fileID: 0}
 --- !u!114 &532689097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11257,14 +11253,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   addOnEnable: 1
   removeOnDisable: 1
-  isLive: 0
-  _gameTime: 0
   _maxGameTime: 60
-  level: 0
-  hp: 0
   maxHp: 50
-  kill: 0
-  exp: 0
+  meleeWeaponBaseSpeed: 150
+  rangeWeaponBaseSpeed: 0.5
+  playerBaseMoveSpeed: 3
   nextExp: 03000000050000000a000000140000001e000000320000006400000096000000c8000000fa000000
   playerController: {fileID: 264678233}
   pool: {fileID: 1403581677}
@@ -11318,9 +11311,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   addOnEnable: 1
   removeOnDisable: 1
-  lockCharacter:
+  lockedCharacters:
   - {fileID: 844569861}
-  unlockCharacter:
+  unlockedCharacters:
   - {fileID: 867643727}
   uiNotice: {fileID: 1920657044}
 --- !u!1 &743019016
@@ -11379,12 +11372,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282dcdd7bc243574296f53311aa211fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 37420765d2d0a1842aa59cdb2e36bbc7, type: 2}
-  level: 0
+  itemData: {fileID: 11400000, guid: 37420765d2d0a1842aa59cdb2e36bbc7, type: 2}
+  itemLevel: 0
   weapon: {fileID: 0}
   gearUpgrader: {fileID: 0}
-  icon: {fileID: 0}
-  levelText: {fileID: 0}
 --- !u!114 &743019019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13645,12 +13636,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282dcdd7bc243574296f53311aa211fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 2f286d9fe9edbe946a2f20d8aa0dbe00, type: 2}
-  level: 0
+  itemData: {fileID: 11400000, guid: 2f286d9fe9edbe946a2f20d8aa0dbe00, type: 2}
+  itemLevel: 0
   weapon: {fileID: 0}
   gearUpgrader: {fileID: 0}
-  icon: {fileID: 0}
-  levelText: {fileID: 0}
 --- !u!1 &1318958766
 GameObject:
   m_ObjectHideFlags: 0
@@ -24308,12 +24297,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282dcdd7bc243574296f53311aa211fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: b3a46dbf23be8b644898da8fe5a40c6a, type: 2}
-  level: 0
+  itemData: {fileID: 11400000, guid: b3a46dbf23be8b644898da8fe5a40c6a, type: 2}
+  itemLevel: 0
   weapon: {fileID: 0}
   gearUpgrader: {fileID: 0}
-  icon: {fileID: 0}
-  levelText: {fileID: 0}
 --- !u!114 &1726580646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25895,12 +25882,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282dcdd7bc243574296f53311aa211fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 16a26785ed0600c408db159f64a41457, type: 2}
-  level: 0
+  itemData: {fileID: 11400000, guid: 16a26785ed0600c408db159f64a41457, type: 2}
+  itemLevel: 0
   weapon: {fileID: 0}
   gearUpgrader: {fileID: 0}
-  icon: {fileID: 0}
-  levelText: {fileID: 0}
 --- !u!114 &2060161224
 MonoBehaviour:
   m_ObjectHideFlags: 0

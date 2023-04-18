@@ -1,12 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PoolType
-{
-    Monster,
-    Weapon
-}
-
 public class PoolManager : MonoBehaviour
 {
     /// <summary>
@@ -14,7 +8,9 @@ public class PoolManager : MonoBehaviour
     /// </summary>
     [SerializeField]
     private GameObject[] monsterPrefabs;
-
+    /// <summary>
+    /// Pool対象 (Weapon)
+    /// </summary>
     [SerializeField]
     private GameObject[] weaponPrefabs;
     public GameObject[] WeaponPrefabs => weaponPrefabs;
@@ -25,6 +21,9 @@ public class PoolManager : MonoBehaviour
     private List<GameObject>[] _monsterPools;
     private List<GameObject>[] _weaponPools;
 
+    /// <summary>
+    /// 初期化
+    /// </summary>
     private void Awake()
     {
         // Pool 初期化
@@ -41,10 +40,10 @@ public class PoolManager : MonoBehaviour
     /// <summary>
     /// 当該Index(Monster Id)をPoolで、取得または、生成
     /// </summary>
-    public GameObject Get(PoolType type, int index)
+    public GameObject Get(GameDefine.PoolType type, int index)
     {
         List<GameObject> objectPool = 
-            type == PoolType.Monster ? _monsterPools[index] : _weaponPools[index];
+            type == GameDefine.PoolType.Monster ? _monsterPools[index] : _weaponPools[index];
 
         // 非活性オブジェクトを見つけてリターン
         foreach (GameObject go in objectPool)
@@ -58,7 +57,7 @@ public class PoolManager : MonoBehaviour
         
         // 非活性オブジェクトがない場合、新たに生成してリターン
         GameObject newObject = Instantiate(
-            type == PoolType.Monster ? monsterPrefabs[index] : weaponPrefabs[index], transform);
+            type == GameDefine.PoolType.Monster ? monsterPrefabs[index] : weaponPrefabs[index], transform);
         objectPool.Add(newObject);
     
         return newObject;

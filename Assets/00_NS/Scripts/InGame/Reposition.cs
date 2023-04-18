@@ -20,16 +20,14 @@ public class Reposition : MonoBehaviour
     private void OnTriggerExit2D(Collider2D col)
     {
         // Areaでない場合リターン
-        if (!col.CompareTag("Area"))
+        if (!col.CompareTag(GameDefine.Tag.Area.ToString()))
             return;
         
         // 現在のタイルマップの位置
         Vector3 myPos = transform.position;
-        // Playerの入力方向
-        //Vector3 playerDir = GameManager.Instance.Player.InputVec;
         
         switch (transform.tag)
-        {
+        { 
             // タイルマップのタグがTileの場合
             case "Tile":
                 // PlayerとタイルマップのX、Y軸距離差計算

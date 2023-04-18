@@ -1,64 +1,104 @@
 using UnityEngine;
+using System.Linq;
 
 public class LevelUpPop : MonoBehaviour
 {
     private RectTransform _rect;
+    /// <summary>
+    /// LevelUpポップアップに、入るアイテム
+    /// </summary>
     private LevelUpPopupItem[] _items;
 
+    /// <summary>
+    /// 初期化
+    /// </summary>
     private void Awake()
     {
         _rect = GetComponent<RectTransform>();
         _items = GetComponentsInChildren<LevelUpPopupItem>(true);
     }
 
+    /// <summary>
+    /// ポップアップ表示
+    /// </summary>
     public void Show()
     {
-        GetRandomitems();
+        // ランダムにアイテムを選択
+        RandomlySelectItems();
         _rect.localScale = Vector3.one;
+        // ゲーム時間停止
         GameManager.Instance.TimeStop();
-        AudioManager.Instance.PlaySfx(AudioManager.Sfx.LevelUp);
+        AudioManager.Instance.PlaySfx(GameDefine.Sfx.LevelUp);
     }
 
+    /// <summary>
+    /// ポップアップ非表示
+    /// </summary>
     public void Hide()
     {
         _rect.localScale = Vector3.zero;
+        // ゲーム時間の再開
         GameManager.Instance.TimeResume();
-        AudioManager.Instance.PlaySfx(AudioManager.Sfx.Select);
+        AudioManager.Instance.PlaySfx(GameDefine.Sfx.Select);
     }
 
-    public void Select(int index)
-    {
-        _items[index].OnClick();
-    }
-    
-    private void GetRandomitems()
+    /// <summary>
+    /// 選択されたアイテムクリックイベントの実行
+    /// </summary>
+    public void Select(int index) => _items[index].OnClick();
+
+    /// <summary>
+    /// ランダムにアイテムを選択
+    /// </summary>
+    private void RandomlySelectItems()
     {
         // すべてのアイテムを非活性
         foreach (LevelUpPopupItem item in _items)
             item.gameObject.SetActive(false);
         
         // ランダムアイテム3つ抽選
-        int[] ran = new int[3];
-        while (true)
+        int[] randomIndices = GetRandomIndices(GameDefine.RANDOM_ITEM_COUNT);
+        
+        for (int i = 0; i < randomIndices.Length; i++)
         {
-            ran[0] = Random.Range(0, _items.Length);
-            ran[1] = Random.Range(0, _items.Length);
-            ran[2] = Random.Range(0, _items.Length);
-            
-            if(ran[0] != ran[1] && ran[1] != ran[2] && ran[0] != ran[2])
-                break;
-        }
+            LevelUpPopupItem selectedItem = _items[randomIndices[i]];
 
-        for (int i = 0; i < ran.Length; i++)
-        {
-            LevelUpPopupItem ranLevelUpPopupItem = _items[ran[i]];
-
-            // Maxレベルの場合は消費アイテムで対処
-            if (ranLevelUpPopupItem.level == ranLevelUpPopupItem.data.damages.Length)
+            // Maxレベルの場合、消費アイテムを表示する。
+            if (selectedItem.ItemLevel == selectedItem.ItemData.damages.Length)
                 _items[4].gameObject.SetActive(true);
             else
-                ranLevelUpPopupItem.gameObject.SetActive(true);
+                selectedItem.gameObject.SetActive(true);
+        }
+    }
+    
+    /// <summary>
+    /// count個数分のランダムインデックス配列を返却
+    /// (重複アイテム検査)
+    /// </summary>
+    private int[] GetRandomIndices(int count)
+    {
+        // ランダムIndex配列の初期化
+        int[] randomIndices = new int[count];
+        for (int i = 0; i < count; i++)
+            randomIndices[i] = -1;
+
+        // 重複する値が選択されないようにチェック
+        for (int i = 0; i < count; i++)
+        {
+            bool isDuplicated = true;
+            while (isDuplicated)
+            {
+                // _items 配列内のインデックスランダム選択
+                int randomIndex = Random.Range(0, _items.Length);
+                if (!randomIndices.Contains(randomIndex))
+                {
+                    // 選択済みの値でない場合は、配列に保存
+                    randomIndices[i] = randomIndex;
+                    isDuplicated = false;
+                }
+            }
         }
 
+        return randomIndices;
     }
 }

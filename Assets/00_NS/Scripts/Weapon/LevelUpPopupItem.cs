@@ -4,98 +4,111 @@ using static System.String;
 
 public class LevelUpPopupItem : MonoBehaviour
 {
-    public ItemData data;
-    public int level;
-    public Weapon weapon;
-    public GearUpgrader gearUpgrader;
+    [SerializeField]
+    private ItemData itemData;
+    public ItemData ItemData => itemData;
+    
+    private Weapon _weapon;
+    private GearUpgrader _gearUpgrader;
 
+    private Image _icon;
+    private Text _levelText;
+    private Text _nameText;
+    private Text _descText;
+    
+    public int ItemLevel { get; set; }
 
-    public Image icon;
-    public Text levelText;
-    private Text nameText;
-    private Text descText;
-
-
+    /// <summary>
+    /// 初期化
+    /// </summary>
     private void Awake()
     {
-        icon = GetComponentsInChildren<Image>()[1];
-        icon.sprite = data.itemIcon;
+        _icon = GetComponentsInChildren<Image>()[1];
+        _icon.sprite = itemData.itemIcon;
 
         Text[] texts = GetComponentsInChildren<Text>();
-        levelText = texts[0];
-        nameText = texts[1];
-        descText = texts[2];
+        _levelText = texts[0];
+        _nameText = texts[1];
+        _descText = texts[2];
 
-        nameText.text = data.itemName;
+        _nameText.text = itemData.itemName;
     }
 
+    /// <summary>
+    /// オブジェクト表示タイミングで、データを初期化
+    /// </summary>
     private void OnEnable()
     {
-        levelText.text = $"Lv.{level + 1}";
+        _levelText.text = $"Lv.{ItemLevel + 1}";
 
-        switch (data.itemType)
+        switch (itemData.itemType)
         {
             case ItemData.ItemType.Melee:
             case ItemData.ItemType.Range:
-                descText.text = Format(data.itemDesc, data.damages[level] * 100, data.counts[level]);
+                _descText.text = Format(itemData.itemDesc, itemData.damages[ItemLevel] * 100, itemData.counts[ItemLevel]);
                 break;
             case ItemData.ItemType.AtkSpeed:
             case ItemData.ItemType.MoveSpeed:
-                descText.text = Format(data.itemDesc, data.damages[level] * 100);
+                _descText.text = Format(itemData.itemDesc, itemData.damages[ItemLevel] * 100);
                 break;
             default:
-                descText.text = Format(data.itemDesc);
+                _descText.text = Format(itemData.itemDesc);
                 break;
         }
     }
     
+    /// <summary>
+    /// アイテムを選択したとき
+    /// </summary>
     public void OnClick()
     {
-        switch (data.itemType)
+        switch (itemData.itemType)
         {
             case ItemData.ItemType.Melee:
             case ItemData.ItemType.Range:
-                if (level == 0)
+                if (ItemLevel == 0)
                 {
+                    // 武器アイテムを初めて購入する場合は、武器オブジェクトを作成して初期化
                     GameObject newWeaopn = new GameObject();
-                    weapon = newWeaopn.AddComponent<Weapon>();
-                    weapon.Init(data);
+                    _weapon = newWeaopn.AddComponent<Weapon>();
+                    _weapon.Init(itemData);
                 }
                 else
                 {
-                    float nextDamage = data.baseDamage;
+                    // 武器アイテムをアップグレードする場合、次のレベルに合った、ダメージと使用可能回数を計算し、アップグレード
+                    float nextDamage = itemData.baseDamage;
                     int nextCount = 0;
 
-                    nextDamage += data.baseDamage * data.damages[level];
-                    nextCount += data.counts[level];
+                    nextDamage += itemData.baseDamage * itemData.damages[ItemLevel];
+                    nextCount += itemData.counts[ItemLevel];
                     
-                    weapon.WeaponLevelUp(nextDamage, nextCount);
+                    _weapon.WeaponLevelUp(nextDamage, nextCount);
                 }
-                level++;
+                ItemLevel++;
                 break;
             case ItemData.ItemType.AtkSpeed:
             case ItemData.ItemType.MoveSpeed:
-                if (level == 0)
+                if (ItemLevel == 0)
                 {
                     GameObject newGear = new GameObject();
-                    gearUpgrader = newGear.AddComponent<GearUpgrader>();
-                    gearUpgrader.Init(data);
+                    _gearUpgrader = newGear.AddComponent<GearUpgrader>();
+                    _gearUpgrader.Init(itemData);
                 }
                 else
                 {
-                    float nextRate = data.damages[level];
-                    gearUpgrader.GearLevelUp(nextRate);
+                    float nextRate = itemData.damages[ItemLevel];
+                    _gearUpgrader.GearLevelUp(nextRate);
                 }
-                level++;
+                ItemLevel++;
                 break;
             case ItemData.ItemType.Heal:
+                // 回復アイテムの場合、Playerの体力を最大体力に回復
                 GameManager.Instance.Hp = GameManager.Instance.MaxHp;
                 break;
         }
         
-        if (level == data.damages.Length)
-        {
+        // 最大レベル達成時、クリック禁止
+        if (ItemLevel == itemData.damages.Length)
             GetComponent<Button>().interactable = false;
-        }
     }
 }
